@@ -14,14 +14,11 @@ void imprimeVector(vector <int> &v){
 }
 
 bool estaOrdenado(const vector<int> &v){
-    int flag = 1, i = 0;
     bool is_ordered = true;
-    while( (i<v.size()) && (flag == 1) ){
-        if(v[i] > v[i+1]){
-            flag = 0;
-            is_ordered = false;
-        }
-        i++;
+    for(int i = 0; i < v.size()-1; i++){
+        #ifndef NDEBUG
+            assert( v[i] <= v[i+1] );
+        #endif
     }
     return is_ordered;
 }
@@ -39,28 +36,28 @@ void quicksort(vector<int> &v, int start, int end){
 
 int divide(vector<int> &v, int start, int end){
     int left,right,pivot,temp;
-    pivot = array[start];
+    pivot = v[start];
     left = start;
     right = end;
     // Mientras no se cruzen los índices
     while (left < right) {
-        while (array[right] > pivot) {
+        while (v[right] > pivot) {
             right--;
         }
-        while ((left < right) && (array[left] <= pivot)) {
+        while ((left < right) && (v[left] <= pivot)) {
             left++;
         }
         // Si todavía no se cruzan los indices seguimos intercambiando
         if (left < right) {
-            temp = array[left];
-            array[left] = array[right];
-            array[right] = temp;
+            temp = v[left];
+            v[left] = v[right];
+            v[right] = temp;
         }
     }
     // Los índices ya se han cruzado, ponemos el pivot en el lugar que le corresponde
-    temp = array[right];
-    array[right] = array[start];
-    array[start] = temp;
+    temp = v[right];
+    v[right] = v[start];
+    v[start] = temp;
     // La nueva posición del pivot
     return right;
 }
