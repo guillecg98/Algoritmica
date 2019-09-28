@@ -7,6 +7,7 @@ int main() {
     Clock time;
 
     std::vector<int> v;
+    std::vector<int> n;
     std::vector<double> times;
 
     cout<<"Introduce el tamaño minimo del vector:\n";
@@ -19,9 +20,8 @@ int main() {
     cout<<"Introduce el numero de repeticiones:\n";
     cin>>rep;
 
-    ofstream time_file;
-    time_file.open("tiempos.txt");//termina esto
     while(v.size() <= max){
+        n.push_back(min);
         double media = 0;
         cout<<"Para "<<v.size()<<" elementos:\n";
         for(int i = 0; i < rep; i++){
@@ -40,5 +40,6 @@ int main() {
         min += inc;
         v.resize(min);
     }
+    escribeFichero(n,times);
     return 0;
 }

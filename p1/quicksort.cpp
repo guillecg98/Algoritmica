@@ -61,3 +61,27 @@ int divide(vector<int> &v, int start, int end){
     // La nueva posición del pivot
     return right;
 }
+
+bool escribeFichero(vector<int> &n,vector<double> &times){
+    bool escrito = false;
+    #ifndef NDEBUG
+        assert( !n.empty() );
+        assert( !times.empty() );
+        assert( n.size() == times.size());
+    #endif
+
+    ofstream file("tiempos.txt");
+
+    for(int i = 0; i < n.size(); i++){
+        file << n[i] << " " << times[i] << "\n";
+    }
+
+    file.close();
+
+    escrito = true;
+
+    #ifndef NDEBUG
+        assert( escrito == true );
+    #endif
+    return escrito;
+}

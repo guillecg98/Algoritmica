@@ -15,8 +15,7 @@
 using namespace std;
 
 /*!\brief Models a clock to measure performace.*/
-  class Clock
-  {
+  class Clock{
   private:
     timespec _start;
     timespec _stop;
@@ -79,5 +78,6 @@ void imprimeVector(vector <int> &v);
 bool estaOrdenado(const vector<int> &v);
 void quicksort(vector<int> &v, int start, int end);
 int divide(vector<int> &v, int start, int end);
+bool escribeFichero(vector<int> &v,vector<double> &times);
 
 #endif
