@@ -78,6 +78,7 @@ void imprimeVector(vector <int> &v);
 bool estaOrdenado(const vector<int> &v);
 void quicksort(vector<int> &v, int start, int end);
 int divide(vector<int> &v, int start, int end);
-bool escribeFichero(vector<int> &v,vector<double> &times);
+bool escribeFichero(vector<double> &n,vector<double> &times);
+void ajusteNlogN(const vector<double> &n,const vector<double> &times,double &a0, double &a1);
 
 #endif

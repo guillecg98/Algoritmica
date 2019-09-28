@@ -7,7 +7,7 @@ int main() {
     Clock time;
 
     std::vector<int> v;
-    std::vector<int> n;
+    std::vector<double> n;
     std::vector<double> times;
 
     cout<<"Introduce el tamaño minimo del vector:\n";
