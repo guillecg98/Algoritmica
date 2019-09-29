@@ -87,16 +87,17 @@ bool escribeFichero(vector<double> &n,vector<double> &times){
 }
 
 void ajusteNlogN(const vector<double> &n,const vector<double> &times,double &a0, double &a1){
-  std::vector<double> z;
-  std::vector<double> estimated_times;
-  z.resize(n.size());
+    std::vector<double> z;
+    z.resize(n.size());
 
-  for(int i = 0; i < z.size(); i++){
-      z[i] = n[i] * log10(n[i]);
-  }
-
-  for(int i = 0; i < z.size(); i++){
-      estimated_times.push_back(a0 + a1*z[i]);
-  }
-
+    for(int i = 0; i < z.size(); i++){
+        z[i] = n[i] * log10(n[i]);
+    }
 }
+
+void calcularTiemposEstimadosNlogN(const vector<double> &n,const vector<double> &times, const double &a0, const double &a1, vector<double> estimated_times){
+    estimated_times.resize(times.size());
+    for(int i = 0; i < estimated_times.size(); i++){
+        estimated_times.push_back(a0 + a1 * n[i]*log10(n[i]));
+    }
+}   

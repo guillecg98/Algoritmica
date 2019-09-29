@@ -9,6 +9,7 @@ int main() {
     std::vector<int> v;
     std::vector<double> n;
     std::vector<double> times;
+    std::vector<double> estimated_times;
 
     cout<<"Introduce el tamaño minimo del vector:\n";
     cin>>min;

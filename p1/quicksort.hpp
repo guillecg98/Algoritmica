@@ -80,5 +80,6 @@ void quicksort(vector<int> &v, int start, int end);
 int divide(vector<int> &v, int start, int end);
 bool escribeFichero(vector<double> &n,vector<double> &times);
 void ajusteNlogN(const vector<double> &n,const vector<double> &times,double &a0, double &a1);
+void calcularTiemposEstimadosNlogN(const vector<double> &n,const vector<double> &times, const double &a0, const double &a1, vector<double> estimated_times);
 
 #endif
