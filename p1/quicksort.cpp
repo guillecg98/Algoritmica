@@ -1,4 +1,5 @@
 #include "quicksort.hpp"
+#include "sistemaEcuaciones.cpp"
 
 void rellenarVector(vector <int> &v){
     for(int i = 0; i < v.size(); i++){
@@ -87,17 +88,76 @@ bool escribeFichero(vector<double> &n,vector<double> &times){
 }
 
 void ajusteNlogN(const vector<double> &n,const vector<double> &times,double &a0, double &a1){
+    std::vector<vector<double>> A(2, vector<double>(2, 0));
+    std::vector<vector<double>> B(2, vector<double>(1, 0));
+    std::vector<vector<double>> X(2, vector<double>(1, 0));
+
     std::vector<double> z;
     z.resize(n.size());
-
+    //calculo del cambio de variable
     for(int i = 0; i < z.size(); i++){
         z[i] = n[i] * log10(n[i]);
     }
+
+    //planteamos el sistema para el caso t(n) = a0 + a1 * nlog(n)
+    for(int i = 0; i < 2; i++){
+        for(int j = 0; j < 2; j++){
+            if( (i == 0) && (j == 0) ){
+                A[0][0] = times.size();
+            }else{
+                A[i][j] = sumatorio(z,times,i+j,0);
+            }
+        }
+        B[i][0] = sumatorio(z,times,i,1);
+    }
+
+    for(int i = 0; i < 2; i++){
+        for(int j = 0; j < 2; j++){
+            cout<<"A["<<i<<"]["<<j<<"] = "<<A[i][j]<<"\n";
+            cout<<"B["<<i<<"]["<<j<<"] = "<<B[i][j]<<"\n";
+        }
+    }
+    //resolvemos el sistema de ecuaciones
+    resolverSistemaEcuaciones(A,B,2,X);
+    a0 = X[0][0];
+    a1 = X[1][0];
 }
 
-void calcularTiemposEstimadosNlogN(const vector<double> &n,const vector<double> &times, const double &a0, const double &a1, vector<double> estimated_times){
-    estimated_times.resize(times.size());
-    for(int i = 0; i < estimated_times.size(); i++){
+double sumatorio(vector<double> vec1, vector<double> vec2, double exp1, double exp2){
+    #ifndef NDEBUG
+        assert( vec1.size() == vec2.size());
+    #endif
+    double sum = 0;
+    for(int i = 0; i < vec1.size(); i++){
+        sum += pow(vec1[i],exp1) * pow(vec2[i],exp2);
+    }
+    return sum;
+}
+
+void calcularTiemposEstimadosNlogN(const vector<double> &n,const vector<double> &times, const double &a0, const double &a1, vector<double> &estimated_times){
+
+    for(int i = 0; i < times.size(); i++){
         estimated_times.push_back(a0 + a1 * n[i]*log10(n[i]));
     }
-}   
+}
+
+double calcularCoeficienteDeterminacion(const vector<double> &times, const vector<double> &estimates_times){
+    return calcularVarianza(times) / calcularVarianza(estimates_times);
+}
+
+double calcularVarianza(vector <double> vec){
+    double media = 0;
+    double varianza = 0;
+
+    for(int i = 0; i < vec.size(); i++){
+        media += vec[i];
+    }
+    media = media / vec.size();
+
+    for(int i = 0; i < vec.size(); i++){
+        varianza += pow(vec[i]-media,2);
+    }
+    varianza = varianza / vec.size();
+
+    return varianza;
+}

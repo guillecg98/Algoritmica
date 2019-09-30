@@ -4,6 +4,7 @@
 int main() {
 
     int max,min,inc,rep;
+    double a0,a1;
     Clock time;
 
     std::vector<int> v;
@@ -42,5 +43,14 @@ int main() {
         v.resize(min);
     }
     escribeFichero(n,times);
+    ajusteNlogN(n,times,a0,a1);
+    calcularTiemposEstimadosNlogN(n,times,a0,a1,estimated_times);
+
+    for(int i = 0; i<estimated_times.size(); i++){
+        cout<<"estimados["<<i<<"] = "<<estimated_times[i]<<"\n";
+    }
+
+    cout<<"Coeficiente de Determinacion = "<<calcularCoeficienteDeterminacion(times,estimated_times)<<"\n";
+
     return 0;
 }
