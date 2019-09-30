@@ -63,18 +63,18 @@ int divide(vector<int> &v, int start, int end){
     return right;
 }
 
-bool escribeFichero(vector<double> &n,vector<double> &times){
+bool escribeFichero(vector<double> &n,vector<double> &times,vector<double> &estimates_times){
     bool escrito = false;
     #ifndef NDEBUG
         assert( !n.empty() );
         assert( !times.empty() );
-        assert( n.size() == times.size());
+        assert( !estimates_times.empty());
     #endif
 
-    ofstream file("tiempos.txt");
+    ofstream file("Datos.txt");
 
     for(int i = 0; i < n.size(); i++){
-        file << n[i] << " " << times[i] << "\n";
+        file << n[i] << " " << times[i] << " " << estimates_times[i] << "\n";
     }
 
     file.close();
@@ -142,7 +142,7 @@ void calcularTiemposEstimadosNlogN(const vector<double> &n,const vector<double> 
 }
 
 double calcularCoeficienteDeterminacion(const vector<double> &times, const vector<double> &estimates_times){
-    return calcularVarianza(times) / calcularVarianza(estimates_times);
+    return calcularVarianza(estimates_times) / calcularVarianza(times);
 }
 
 double calcularVarianza(vector <double> vec){
@@ -160,4 +160,11 @@ double calcularVarianza(vector <double> vec){
     varianza = varianza / vec.size();
 
     return varianza;
+}
+
+double calculaTiempoEstimado(const double &n,const double &a0, const double &a1){
+    double dia = 0;
+    double micro = 86400000000; //1 dia son esos microsegundos
+    dia = (a0 + a1 * n * log10(n)) / micro;
+    return dia;
 }

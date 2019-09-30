@@ -42,14 +42,23 @@ int main() {
         min += inc;
         v.resize(min);
     }
-    escribeFichero(n,times);
+
     ajusteNlogN(n,times,a0,a1);
     calcularTiemposEstimadosNlogN(n,times,a0,a1,estimated_times);
 
+    escribeFichero(n,times,estimated_times);
+
+    for(int i = 0; i<times.size(); i++){
+        cout<<"reales["<<i<<"] = "<<times[i]<<"\n";
+    }
     for(int i = 0; i<estimated_times.size(); i++){
         cout<<"estimados["<<i<<"] = "<<estimated_times[i]<<"\n";
     }
 
+    cout<<"El tiempo en dias para 100000 millones de elementos es = "<<calculaTiempoEstimado(100000000000,a0,a1)<<"\n";
+
+    cout<<"Varianza tiempos reales = "<<calcularVarianza(times)<<"\n";
+    cout<<"Varianza tiempos estimados = "<<calcularVarianza(estimated_times)<<"\n";
     cout<<"Coeficiente de Determinacion = "<<calcularCoeficienteDeterminacion(times,estimated_times)<<"\n";
 
     return 0;
