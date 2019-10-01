@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/practica1.exe.dir/main.cpp.o CMakeFiles/practica1.exe.dir/quicksort.cpp.o CMakeFiles/practica1.exe.dir/matrix.cpp.o  -o practica1.exe 
