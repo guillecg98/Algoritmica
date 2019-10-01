@@ -1,12 +1,14 @@
 #include "quicksort.hpp"
-//#include "sistemaEcuaciones.hpp"
+#include "matrix.hpp"
+#include "ClaseTiempo.cpp"
 
 int main() {
-
+/*
+---------------------------------------------------------------COMIENZA LA PARTE DEL QUICKSORT
     int max,min,inc,rep;
     double a0,a1;
     Clock time;
-
+    //Para la parte del quicksort
     std::vector<int> v;
     std::vector<double> n;
     std::vector<double> times;
@@ -60,6 +62,31 @@ int main() {
     cout<<"Varianza tiempos reales = "<<calcularVarianza(times)<<"\n";
     cout<<"Varianza tiempos estimados = "<<calcularVarianza(estimated_times)<<"\n";
     cout<<"Coeficiente de Determinacion = "<<calcularCoeficienteDeterminacion(times,estimated_times)<<"\n";
+    ------------------------------------------------------------------------------ TERMINA LA PARTE DEL QUICKSORT
+*/
 
+/*
+---------------------------------------------------------COMIENZA LA PARTE DEL PRODUCTO DE MATRICES*/
+    std::vector<vector<double>> v;
+    int filas,columnas;
+    cout<<"Introduce tamaño de la matriz\n";
+    cin>> filas;
+    cout<<"-\n";
+    cin>>columnas;
+    //damos tamaño a la matriz
+    v.resize(filas);
+    for(int i = 0; i < v.size(); i++){
+        v[i].resize(columnas);
+    }
+    rellenarMatriz(v);
+
+    for(int i = 0; i<v.size(); i++){
+        for(int j = 0; j<v[i].size(); j++){
+            cout<<"v["<<i<<"]["<<j<<"] = "<<v[i][j]<<"\t";
+        }
+        cout<<"\n";
+    }
+    /*----------------------------------------------------TERMINA LA PARTE DEL PRODUCTO DE MATRICES
+    */
     return 0;
 }
