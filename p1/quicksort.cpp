@@ -8,11 +8,6 @@ void rellenarVector(vector <int> &v){
     }
 }
 
-void imprimeVector(vector <int> &v){
-    for(int i = 0; i < v.size(); i++){
-        cout<<"v["<<v[i]<<"]\n";
-    }
-}
 
 bool estaOrdenado(const vector<int> &v){
     bool is_ordered = true;

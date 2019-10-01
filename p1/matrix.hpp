@@ -15,5 +15,7 @@
 using namespace std;
 
 void rellenarMatriz(vector<vector<double>> &v);
+void redimensionaMatriz(vector<vector<double>> &v,int tam);
+void productoMatrices(vector<vector<double>> &v,vector<vector<double>> &matriz_resultado);
 
 #endif

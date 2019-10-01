@@ -15,7 +15,6 @@
 using namespace std;
 
 void rellenarVector(vector <int> &v);
-void imprimeVector(vector <int> &v);
 bool estaOrdenado(const vector<int> &v);
 void quicksort(vector<int> &v, int start, int end);
 int divide(vector<int> &v, int start, int end);

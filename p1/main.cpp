@@ -3,11 +3,13 @@
 #include "ClaseTiempo.cpp"
 
 int main() {
-/*
----------------------------------------------------------------COMIENZA LA PARTE DEL QUICKSORT
+
     int max,min,inc,rep;
     double a0,a1;
     Clock time;
+
+/*
+---------------------------------------------------------------COMIENZA LA PARTE DEL QUICKSORT
     //Para la parte del quicksort
     std::vector<int> v;
     std::vector<double> n;
@@ -19,7 +21,7 @@ int main() {
     v.resize(min);
     cout<<"Introduce el tamaño maximo del vector:\n";
     cin>>max;
-    cout<<"Introduce el incremento del vector:\n";
+    cout<<"Introduce el incremento:\n";
     cin>>inc;
     cout<<"Introduce el numero de repeticiones:\n";
     cin>>rep;
@@ -27,7 +29,7 @@ int main() {
     while(v.size() <= max){
         n.push_back(min);
         double media = 0;
-        cout<<"Para "<<v.size()<<" elementos:\n";
+        cout<<"Para una n = "<<v.size()<<":\n";
         for(int i = 0; i < rep; i++){
             rellenarVector(v);
             time.start();
@@ -68,23 +70,34 @@ int main() {
 /*
 ---------------------------------------------------------COMIENZA LA PARTE DEL PRODUCTO DE MATRICES*/
     std::vector<vector<double>> v;
-    int filas,columnas;
-    cout<<"Introduce tamaño de la matriz\n";
-    cin>> filas;
-    cout<<"-\n";
-    cin>>columnas;
-    //damos tamaño a la matriz
-    v.resize(filas);
-    for(int i = 0; i < v.size(); i++){
-        v[i].resize(columnas);
-    }
-    rellenarMatriz(v);
+    std::vector<vector<double>> matriz_resultado;
+    std::vector<int> n;
+    std::vector<double> times;
+    cout<<"Introduce el tamaño minimo de la matriz:\n";
+    cin>>min;
+    cout<<"Introduce el tamaño maximo de la matriz:\n";
+    cin>>max;
+    cout<<"Introduce el incremento:\n";
+    cin>>inc;
 
-    for(int i = 0; i<v.size(); i++){
-        for(int j = 0; j<v[i].size(); j++){
-            cout<<"v["<<i<<"]["<<j<<"] = "<<v[i][j]<<"\t";
+    //damos tamaño a la matriz
+    redimensionaMatriz(v,min);
+    redimensionaMatriz(matriz_resultado,min);
+
+    while(v.size() <= max){
+        n.push_back(min);
+        rellenarMatriz(v);
+        cout<<"Para una n = "<<min<<":\n";
+        time.start();
+        productoMatrices(v,matriz_resultado);
+        if(time.isStarted()){
+	        time.stop();
         }
-        cout<<"\n";
+        std::cout << "Han pasado " << time.elapsed() << " microsegundos\n";
+        times.push_back(time.elapsed());
+        min += inc;
+        redimensionaMatriz(v,min);
+        redimensionaMatriz(matriz_resultado,min);
     }
     /*----------------------------------------------------TERMINA LA PARTE DEL PRODUCTO DE MATRICES
     */
