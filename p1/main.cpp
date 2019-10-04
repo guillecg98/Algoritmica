@@ -7,14 +7,15 @@ int main() {
     int max,min,inc,rep;
     double a0,a1;
     Clock time;
+    string file_name;
+    std::vector<double> n;
+    std::vector<double> times;
+    std::vector<double> estimated_times;
 
 /*
 ---------------------------------------------------------------COMIENZA LA PARTE DEL QUICKSORT
     //Para la parte del quicksort
     std::vector<int> v;
-    std::vector<double> n;
-    std::vector<double> times;
-    std::vector<double> estimated_times;
 
     cout<<"Introduce el tamaño minimo del vector:\n";
     cin>>min;
@@ -49,8 +50,8 @@ int main() {
 
     ajusteNlogN(n,times,a0,a1);
     calcularTiemposEstimadosNlogN(n,times,a0,a1,estimated_times);
-
-    escribeFichero(n,times,estimated_times);
+    file_name = "DatosQuicksort.txt";
+    escribeFichero(n,times,estimated_times,file_name);
 
     for(int i = 0; i<times.size(); i++){
         cout<<"reales["<<i<<"] = "<<times[i]<<"\n";
@@ -71,8 +72,7 @@ int main() {
 ---------------------------------------------------------COMIENZA LA PARTE DEL PRODUCTO DE MATRICES*/
     std::vector<vector<double>> v;
     std::vector<vector<double>> matriz_resultado;
-    std::vector<int> n;
-    std::vector<double> times;
+    std::vector<double> a;
     cout<<"Introduce el tamaño minimo de la matriz:\n";
     cin>>min;
     cout<<"Introduce el tamaño maximo de la matriz:\n";
@@ -99,6 +99,18 @@ int main() {
         redimensionaMatriz(v,min);
         redimensionaMatriz(matriz_resultado,min);
     }
+
+    ajustePolinomico(n,times,a);
+    calcularTiemposEstimadosPolinomio(n,times,a,estimated_times);
+
+    file_name = "DatosMatriz.txt";
+    escribeFichero(n,times,estimated_times,file_name);
+
+    cout<<"Varianza tiempos reales = "<<calcularVarianza(times)<<"\n";
+    cout<<"Varianza tiempos estimados = "<<calcularVarianza(estimated_times)<<"\n";
+    cout<<"Coeficiente de Determinacion = "<<calcularCoeficienteDeterminacion(times,estimated_times)<<"\n";
+    cout<<"El tiempo en dias para 1000 elementos es = "<<calcularTiempoEstimadoPolinomico(100000000000,a)<<"\n";
+
     /*----------------------------------------------------TERMINA LA PARTE DEL PRODUCTO DE MATRICES
     */
     return 0;

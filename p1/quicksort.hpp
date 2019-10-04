@@ -21,7 +21,7 @@ int divide(vector<int> &v, int start, int end);
 void ajusteNlogN(const vector<double> &n,const vector<double> &times,double &a0, double &a1);
 double sumatorio(vector<double> vec1, vector<double> vec2, double exp1, double exp2);
 void calcularTiemposEstimadosNlogN(const vector<double> &n,const vector<double> &times, const double &a0, const double &a1, vector<double> &estimated_times);
-bool escribeFichero(vector<double> &n,vector<double> &times,vector<double> &estimated_times);
+bool escribeFichero(vector<double> &n,vector<double> &times,vector<double> &estimated_times,string file_name);
 double calcularCoeficienteDeterminacion(const vector<double> &times, const vector<double> &estimates_times);
 double calcularVarianza(vector <double> vec);
 double calculaTiempoEstimado(const double &n,const double &a0, const double &a1);

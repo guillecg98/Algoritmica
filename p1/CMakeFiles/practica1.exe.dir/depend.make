@@ -8,6 +8,7 @@ CMakeFiles/practica1.exe.dir/main.cpp.o: quicksort.hpp
 
 CMakeFiles/practica1.exe.dir/matrix.cpp.o: matrix.cpp
 CMakeFiles/practica1.exe.dir/matrix.cpp.o: matrix.hpp
+CMakeFiles/practica1.exe.dir/matrix.cpp.o: sistemaEcuaciones.hpp
 
 CMakeFiles/practica1.exe.dir/quicksort.cpp.o: quicksort.cpp
 CMakeFiles/practica1.exe.dir/quicksort.cpp.o: quicksort.hpp
