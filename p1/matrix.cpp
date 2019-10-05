@@ -92,6 +92,10 @@ void calcularTiemposEstimadosPolinomio(const vector<double> &n, const vector<dou
         }
         estimated_times.push_back(res);
     }
+
+    for(int i = 0; i < estimated_times.size(); i++){
+        cout<<"estimados["<<i<<"] = "<<estimated_times[i]<<"\n";
+    }
 }
 
 double calcularTiempoEstimadoPolinomico(const double &n,const vector<double> &a){

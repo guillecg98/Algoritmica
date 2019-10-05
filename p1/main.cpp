@@ -111,7 +111,7 @@ int main() {
     cout<<"Varianza tiempos reales = "<<calcularVarianza(times)<<"\n";
     cout<<"Varianza tiempos estimados = "<<calcularVarianza(estimated_times)<<"\n";
     cout<<"Coeficiente de Determinacion = "<<calcularCoeficienteDeterminacion(times,estimated_times)<<"\n";
-    cout<<"El tiempo en dias para 1000 elementos es = "<<calcularTiempoEstimadoPolinomico(100000000000,a)<<"\n";
+    cout<<"El tiempo en dias para 1000 elementos es = "<<calcularTiempoEstimadoPolinomico(1000,a)<<"\n";
 
     /*----------------------------------------------------TERMINA LA PARTE DEL PRODUCTO DE MATRICES
     */
