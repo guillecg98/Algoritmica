@@ -102,7 +102,9 @@ int main() {
 
     ajustePolinomico(n,times,a);
     calcularTiemposEstimadosPolinomio(n,times,a,estimated_times);
-
+    for(int i = 0; i < a.size(); i++){
+        cout<<"a["<<i<<"] = "<<a[i]<<"\n";
+    }
     file_name = "DatosMatriz.txt";
     escribeFichero(n,times,estimated_times,file_name);
 

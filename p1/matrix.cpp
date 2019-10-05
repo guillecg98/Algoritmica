@@ -30,12 +30,12 @@ void productoMatrices(vector<vector<double>> &v,vector<vector<double>> &matriz_r
 }
 
 void ajustePolinomico(const vector<double> &n, const vector<double> &times, vector <double> &a){
-    vector<vector<double>> A(4, vector<double>(4, 0));
-    vector<vector<double>> B(4, vector<double>(1, 0));
-    vector<vector<double>> X(4, vector<double>(1, 0));
+    vector<vector<double>> A(3, vector<double>(3, 0));
+    vector<vector<double>> B(3, vector<double>(1, 0));
+    vector<vector<double>> X(3, vector<double>(1, 0));
 
-    for(int i = 0; i < 4; i++){
-        for(int j = 0; j < 4; j++){
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
             if( (i == 0) && (j == 0) ){
                 A[0][0] = times.size();
             }else{
@@ -44,10 +44,30 @@ void ajustePolinomico(const vector<double> &n, const vector<double> &times, vect
         }
         B[i][0] = sumatorio(n,times,i,1);
     }
+    resolverSistemaEcuaciones(A,B,3,X);
+    //imprime matriz A
+    for(int mai = 0; mai < 3; mai++){
+        for(int maj = 0; maj < 3; maj++){
+            cout<<"A["<<mai<<"]["<<maj<<"] = "<<A[mai][maj]<<"\t";
+        }
+        cout<<"\n";
+    }
+    //imprime matriz B
+    for(int mbi = 0; mbi < 3; mbi++){
+        for(int mbj = 0; mbj < 1; mbj++){
+            cout<<"B["<<mbi<<"]["<<mbj<<"] = "<<B[mbi][mbj]<<"\t";
+        }
+        cout<<"\n";
+    }
+    //imprime matriz X
+    for(int mxi = 0; mxi < 3; mxi++){
+        for(int mxj = 0; mxj < 1; mxj++){
+            cout<<"X["<<mxi<<"]["<<mxj<<"] = "<<X[mxi][mxj]<<"\t";
+        }
+        cout<<"\n";
+    }
 
-    resolverSistemaEcuaciones(A,B,4,X);
-
-    for(int i = 0; i < 4; i++){
+    for(int i = 0; i < 3; i++){
         a.push_back(X[i][0]);
     }
 }
