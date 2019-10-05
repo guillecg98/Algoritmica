@@ -123,6 +123,33 @@ practica1.exe/fast:
 	$(MAKE) -f CMakeFiles/practica1.exe.dir/build.make CMakeFiles/practica1.exe.dir/build
 .PHONY : practica1.exe/fast
 
+funcionesAuxiliares.o: funcionesAuxiliares.cpp.o
+
+.PHONY : funcionesAuxiliares.o
+
+# target to build an object file
+funcionesAuxiliares.cpp.o:
+	$(MAKE) -f CMakeFiles/practica1.exe.dir/build.make CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.o
+.PHONY : funcionesAuxiliares.cpp.o
+
+funcionesAuxiliares.i: funcionesAuxiliares.cpp.i
+
+.PHONY : funcionesAuxiliares.i
+
+# target to preprocess a source file
+funcionesAuxiliares.cpp.i:
+	$(MAKE) -f CMakeFiles/practica1.exe.dir/build.make CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.i
+.PHONY : funcionesAuxiliares.cpp.i
+
+funcionesAuxiliares.s: funcionesAuxiliares.cpp.s
+
+.PHONY : funcionesAuxiliares.s
+
+# target to generate assembly for a file
+funcionesAuxiliares.cpp.s:
+	$(MAKE) -f CMakeFiles/practica1.exe.dir/build.make CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.s
+.PHONY : funcionesAuxiliares.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -213,6 +240,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... practica1.exe"
 	@echo "... edit_cache"
+	@echo "... funcionesAuxiliares.o"
+	@echo "... funcionesAuxiliares.i"
+	@echo "... funcionesAuxiliares.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

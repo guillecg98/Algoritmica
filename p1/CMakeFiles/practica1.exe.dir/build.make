@@ -81,9 +81,33 @@ CMakeFiles/practica1.exe.dir/main.cpp.o.provides: CMakeFiles/practica1.exe.dir/m
 CMakeFiles/practica1.exe.dir/main.cpp.o.provides.build: CMakeFiles/practica1.exe.dir/main.cpp.o
 
 
+CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.o: CMakeFiles/practica1.exe.dir/flags.make
+CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.o: funcionesAuxiliares.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gecoga98/Escritorio/4º/Algoritmica/p1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.o -c /home/gecoga98/Escritorio/4º/Algoritmica/p1/funcionesAuxiliares.cpp
+
+CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gecoga98/Escritorio/4º/Algoritmica/p1/funcionesAuxiliares.cpp > CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.i
+
+CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gecoga98/Escritorio/4º/Algoritmica/p1/funcionesAuxiliares.cpp -o CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.s
+
+CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.o.requires:
+
+.PHONY : CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.o.requires
+
+CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.o.provides: CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.o.requires
+	$(MAKE) -f CMakeFiles/practica1.exe.dir/build.make CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.o.provides.build
+.PHONY : CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.o.provides
+
+CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.o.provides.build: CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.o
+
+
 CMakeFiles/practica1.exe.dir/quicksort.cpp.o: CMakeFiles/practica1.exe.dir/flags.make
 CMakeFiles/practica1.exe.dir/quicksort.cpp.o: quicksort.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gecoga98/Escritorio/4º/Algoritmica/p1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/practica1.exe.dir/quicksort.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gecoga98/Escritorio/4º/Algoritmica/p1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/practica1.exe.dir/quicksort.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/practica1.exe.dir/quicksort.cpp.o -c /home/gecoga98/Escritorio/4º/Algoritmica/p1/quicksort.cpp
 
 CMakeFiles/practica1.exe.dir/quicksort.cpp.i: cmake_force
@@ -107,7 +131,7 @@ CMakeFiles/practica1.exe.dir/quicksort.cpp.o.provides.build: CMakeFiles/practica
 
 CMakeFiles/practica1.exe.dir/matrix.cpp.o: CMakeFiles/practica1.exe.dir/flags.make
 CMakeFiles/practica1.exe.dir/matrix.cpp.o: matrix.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gecoga98/Escritorio/4º/Algoritmica/p1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/practica1.exe.dir/matrix.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gecoga98/Escritorio/4º/Algoritmica/p1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/practica1.exe.dir/matrix.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/practica1.exe.dir/matrix.cpp.o -c /home/gecoga98/Escritorio/4º/Algoritmica/p1/matrix.cpp
 
 CMakeFiles/practica1.exe.dir/matrix.cpp.i: cmake_force
@@ -132,6 +156,7 @@ CMakeFiles/practica1.exe.dir/matrix.cpp.o.provides.build: CMakeFiles/practica1.e
 # Object files for target practica1.exe
 practica1_exe_OBJECTS = \
 "CMakeFiles/practica1.exe.dir/main.cpp.o" \
+"CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.o" \
 "CMakeFiles/practica1.exe.dir/quicksort.cpp.o" \
 "CMakeFiles/practica1.exe.dir/matrix.cpp.o"
 
@@ -139,11 +164,12 @@ practica1_exe_OBJECTS = \
 practica1_exe_EXTERNAL_OBJECTS =
 
 practica1.exe: CMakeFiles/practica1.exe.dir/main.cpp.o
+practica1.exe: CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.o
 practica1.exe: CMakeFiles/practica1.exe.dir/quicksort.cpp.o
 practica1.exe: CMakeFiles/practica1.exe.dir/matrix.cpp.o
 practica1.exe: CMakeFiles/practica1.exe.dir/build.make
 practica1.exe: CMakeFiles/practica1.exe.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/gecoga98/Escritorio/4º/Algoritmica/p1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable practica1.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/gecoga98/Escritorio/4º/Algoritmica/p1/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable practica1.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/practica1.exe.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -152,6 +178,7 @@ CMakeFiles/practica1.exe.dir/build: practica1.exe
 .PHONY : CMakeFiles/practica1.exe.dir/build
 
 CMakeFiles/practica1.exe.dir/requires: CMakeFiles/practica1.exe.dir/main.cpp.o.requires
+CMakeFiles/practica1.exe.dir/requires: CMakeFiles/practica1.exe.dir/funcionesAuxiliares.cpp.o.requires
 CMakeFiles/practica1.exe.dir/requires: CMakeFiles/practica1.exe.dir/quicksort.cpp.o.requires
 CMakeFiles/practica1.exe.dir/requires: CMakeFiles/practica1.exe.dir/matrix.cpp.o.requires
 

@@ -1,119 +1,98 @@
-#include "quicksort.hpp"
-#include "matrix.hpp"
-#include "ClaseTiempo.cpp"
+#include "macros.hpp"
+#include "funcionesAuxiliares.hpp"
+
+int menu();
 
 int main() {
 
-    int max,min,inc,rep;
-    double a0,a1;
-    Clock time;
-    string file_name;
-    std::vector<double> n;
-    std::vector<double> times;
-    std::vector<double> estimated_times;
+	int opcion;
+	do{
+	// Se elige la opción del menún
+	    opcion = menu();
 
-/*
----------------------------------------------------------------COMIENZA LA PARTE DEL QUICKSORT
-    //Para la parte del quicksort
-    std::vector<int> v;
-
-    cout<<"Introduce el tamaño minimo del vector:\n";
-    cin>>min;
-    v.resize(min);
-    cout<<"Introduce el tamaño maximo del vector:\n";
-    cin>>max;
-    cout<<"Introduce el incremento:\n";
-    cin>>inc;
-    cout<<"Introduce el numero de repeticiones:\n";
-    cin>>rep;
-
-    while(v.size() <= max){
-        n.push_back(min);
-        double media = 0;
-        cout<<"Para una n = "<<v.size()<<":\n";
-        for(int i = 0; i < rep; i++){
-            rellenarVector(v);
-            time.start();
-            quicksort(v,0,v.size()-1);
-            if(time.isStarted()){
-	        time.stop();
-            media +=time.elapsed();
-	        }
+		std::cout << CLEAR_SCREEN;
+		PLACE(3,1);
+		// Se ejecuta la opción del menú elegida
+		switch(opcion){
+            case 0:
+			    PLACE(3,1);
+				std::cout << BIYELLOW;
+				std::cout << "[0] Fin del programa" << std::endl << std::endl;
+				std::cout << RESET;
+				break;
+			case 1:
+			   	std::cout << BIBLUE;
+				std::cout << "[1] Quicksort" << std::endl;
+				std::cout << RESET;
+                quicksort(); 
+				break;
+			case 2:
+			   	std::cout << BIBLUE;
+				std::cout << "[2] Producto de matrices" << std::endl;
+				std::cout << RESET;
+				productoMatrices();
+				break;
+			default:
+				std::cout << BIRED;
+				std::cout << "Opción incorrecta ";
+				std::cout << RESET;
+				std::cout << "--> ";
+			  	std::cout << ONIRED;
+				std::cout << opcion << std::endl;
+				std::cout << RESET;
         }
-        media /= rep;
-        std::cout << "Han pasado " << media << " microsegundos de media\n";
-        times.push_back(media);
-        v.clear();
-        min += inc;
-        v.resize(min);
-    }
 
-    ajusteNlogN(n,times,a0,a1);
-    calcularTiemposEstimadosNlogN(n,times,a0,a1,estimated_times);
-    file_name = "DatosQuicksort.txt";
-    escribeFichero(n,times,estimated_times,file_name);
-
-    for(int i = 0; i<times.size(); i++){
-        cout<<"reales["<<i<<"] = "<<times[i]<<"\n";
-    }
-    for(int i = 0; i<estimated_times.size(); i++){
-        cout<<"estimados["<<i<<"] = "<<estimated_times[i]<<"\n";
-    }
-
-    cout<<"El tiempo en dias para 100000 millones de elementos es = "<<calculaTiempoEstimado(100000000000,a0,a1)<<"\n";
-
-    cout<<"Varianza tiempos reales = "<<calcularVarianza(times)<<"\n";
-    cout<<"Varianza tiempos estimados = "<<calcularVarianza(estimated_times)<<"\n";
-    cout<<"Coeficiente de Determinacion = "<<calcularCoeficienteDeterminacion(times,estimated_times)<<"\n";
-    ------------------------------------------------------------------------------ TERMINA LA PARTE DEL QUICKSORT
-*/
-
-/*
----------------------------------------------------------COMIENZA LA PARTE DEL PRODUCTO DE MATRICES*/
-    std::vector<vector<double>> v;
-    std::vector<vector<double>> matriz_resultado;
-    std::vector<double> a;
-    cout<<"Introduce el tamaño minimo de la matriz:\n";
-    cin>>min;
-    cout<<"Introduce el tamaño maximo de la matriz:\n";
-    cin>>max;
-    cout<<"Introduce el incremento:\n";
-    cin>>inc;
-
-    //damos tamaño a la matriz
-    redimensionaMatriz(v,min);
-    redimensionaMatriz(matriz_resultado,min);
-
-    while(v.size() <= max){
-        n.push_back(min);
-        rellenarMatriz(v);
-        cout<<"Para una n = "<<min<<":\n";
-        time.start();
-        productoMatrices(v,matriz_resultado);
-        if(time.isStarted()){
-	        time.stop();
+        if (opcion !=0){
+            std::cout << "Para mostrar el ";
+            std::cout << BIGREEN ;
+            std::cout << "menú, ";
+            std::cout << RESET;
+            std::cout << "pulse ";
+            std::cout << INVERSE ;
+            std::cout << "ENTER";
+            std::cout << RESET;
+		    // Pausa
+		    std::cin.ignore();
+		    std::cout << CLEAR_SCREEN;
         }
-        std::cout << "Han pasado " << time.elapsed() << " microsegundos\n";
-        times.push_back(time.elapsed());
-        min += inc;
-        redimensionaMatriz(v,min);
-        redimensionaMatriz(matriz_resultado,min);
-    }
+	}while(opcion!=0);
 
-    ajustePolinomico(n,times,a);
-    calcularTiemposEstimadosPolinomio(n,times,a,estimated_times);
-    for(int i = 0; i < a.size(); i++){
-        cout<<"a["<<i<<"] = "<<a[i]<<"\n";
-    }
-    file_name = "DatosMatriz.txt";
-    escribeFichero(n,times,estimated_times,file_name);
+return 0;
+}
 
-    cout<<"Varianza tiempos reales = "<<calcularVarianza(times)<<"\n";
-    cout<<"Varianza tiempos estimados = "<<calcularVarianza(estimated_times)<<"\n";
-    cout<<"Coeficiente de Determinacion = "<<calcularCoeficienteDeterminacion(times,estimated_times)<<"\n";
-    cout<<"El tiempo en dias para 1000 elementos es = "<<calcularTiempoEstimadoPolinomico(1000,a)<<"\n";
 
-    /*----------------------------------------------------TERMINA LA PARTE DEL PRODUCTO DE MATRICES
-    */
-    return 0;
+int menu(){
+ int opcion, posicion;
+	// Se muestran las opciones del menú
+	posicion=2;
+	// Se borra la pantalla
+	std::cout << CLEAR_SCREEN;
+
+	PLACE(posicion++,10);
+	std::cout << BIBLUE;
+	std::cout << "Programa principal | Opciones del menú   ";
+	std::cout << RESET;
+	posicion++;
+
+	PLACE(posicion++,10);
+	std::cout << "[1] Quicksort" << std::endl;
+	PLACE(posicion++,10);
+	std::cout << "[2] Producto de matrices" << std::endl;
+	posicion++;
+
+	PLACE(posicion++,10);
+	std::cout << BIRED;
+	std::cout << "[0] Fin del programa " << std::endl;
+	std::cout << RESET;
+	posicion++;
+
+	PLACE(posicion++,10);
+	std::cout << BIYELLOW;
+	std::cout << "Opción: ";
+	std::cout << RESET;
+	std::cin >> opcion;
+   	// Se elimina el salto de línea del flujo de entrada
+    std::cin.ignore();
+
+	return opcion;
 }

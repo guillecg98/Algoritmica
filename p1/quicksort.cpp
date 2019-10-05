@@ -58,25 +58,21 @@ int divide(vector<int> &v, int start, int end){
 }
 
 bool escribeFichero(vector<double> &n,vector<double> &times,vector<double> &estimated_times,string file_name){
-    bool escrito = false;
     #ifndef NDEBUG
         assert( !n.empty() );
         assert( !times.empty() );
         assert( !estimated_times.empty());
     #endif
+    
+    bool escrito = false;
 
     ofstream file(file_name);
     for(int i = 0; i < n.size(); i++){
         file << n[i] << " " << times[i] << " " << estimated_times[i] << "\n";
     }
-
     file.close();
+
     escrito = true;
-
-    #ifndef NDEBUG
-        assert( escrito == true );
-    #endif
-
     return escrito;
 }
 

@@ -20,13 +20,27 @@ iostream
 stdint.h
 -
 
-/home/gecoga98/Escritorio/4º/Algoritmica/p1/main.cpp
+/home/gecoga98/Escritorio/4º/Algoritmica/p1/funcionesAuxiliares.cpp
+funcionesAuxiliares.hpp
+/home/gecoga98/Escritorio/4º/Algoritmica/p1/funcionesAuxiliares.hpp
+
+/home/gecoga98/Escritorio/4º/Algoritmica/p1/funcionesAuxiliares.hpp
 quicksort.hpp
 /home/gecoga98/Escritorio/4º/Algoritmica/p1/quicksort.hpp
 matrix.hpp
 /home/gecoga98/Escritorio/4º/Algoritmica/p1/matrix.hpp
 ClaseTiempo.cpp
 /home/gecoga98/Escritorio/4º/Algoritmica/p1/ClaseTiempo.cpp
+
+/home/gecoga98/Escritorio/4º/Algoritmica/p1/macros.hpp
+stdio.h
+-
+
+/home/gecoga98/Escritorio/4º/Algoritmica/p1/main.cpp
+macros.hpp
+/home/gecoga98/Escritorio/4º/Algoritmica/p1/macros.hpp
+funcionesAuxiliares.hpp
+/home/gecoga98/Escritorio/4º/Algoritmica/p1/funcionesAuxiliares.hpp
 
 /home/gecoga98/Escritorio/4º/Algoritmica/p1/matrix.cpp
 matrix.hpp
