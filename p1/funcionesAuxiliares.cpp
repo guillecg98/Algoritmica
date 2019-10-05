@@ -7,7 +7,7 @@ void quicksort(){
     int max,min,inc,rep,opcion;
     std::vector<int> v;
     double a0,a1,muestra = 1;
-    std::vector<double> n,times,estimated_times;
+    vector<double> n,times,estimated_times;
 
     cout<<"\nIntroduce el tamaño minimo del vector:\n";
     cin>>min;
@@ -34,7 +34,7 @@ void quicksort(){
 	        }
         }
         media /= rep;
-        std::cout << "Han pasado " << media << " microsegundos de media\n";
+        cout << "Han pasado " << media << " microsegundos de media\n";
         cout<<"\n";
         times.push_back(media);
         v.clear();
@@ -51,7 +51,8 @@ void quicksort(){
         cerr<<"Error al escribir en fichero\n";
     }
 
-    cout<<"\nCoeficiente de Determinacion (R2) = "<<calcularCoeficienteDeterminacion(times,estimated_times)<<"\n";
+    cout<<"\nEcuación del ajuste: t(n) = "<<a0<<" + "<<a1<<" * nlog(n)\n";
+    cout<<"Coeficiente de Determinacion (R2) = "<<calcularCoeficienteDeterminacion(times,estimated_times)<<"\n";
 
     do{
         cout<<"\nSi desea estimar el tiempo para una muestra mayor pulse 1, sino pulse 0.\n";
@@ -81,8 +82,8 @@ void productoMatrices(){
     int max,min,inc,opcion;
     double muestra = 1;
     string file_name = "DatosMatriz.txt";
-    std::vector<double> n,a,times,estimated_times;
-    std::vector<vector<double>> v,matriz_resultado;
+    vector<double> n,a,times,estimated_times;
+    vector<vector<double>> v,matriz_resultado;
 
     cout<<"\nIntroduce el tamaño minimo de la matriz:\n";
     cin>>min;
@@ -104,7 +105,8 @@ void productoMatrices(){
         if(time.isStarted()){
 	        time.stop();
         }
-        std::cout << "Han pasado " << time.elapsed() << " microsegundos\n";
+        cout << "Han pasado " << time.elapsed() << " microsegundos\n";
+        cout<<"\n";
         times.push_back(time.elapsed());
         min += inc;
         redimensionaMatriz(v,min);
@@ -120,7 +122,8 @@ void productoMatrices(){
         cerr<<"Error al escribir en fichero\n";
     }
 
-    cout<<"\nCoeficiente de Determinacion (R2) = "<<calcularCoeficienteDeterminacion(times,estimated_times)<<"\n";
+    cout<<"\nEcuación del ajuste: t(n) = "<<a[0]<<" + "<<a[1]<<"*n^1 + "<<a[2]<<"*n^2 + "<<a[3]<<"*n^3\n";
+    cout<<"Coeficiente de Determinacion (R2) = "<<calcularCoeficienteDeterminacion(times,estimated_times)<<"\n";
 
     do{
         cout<<"\nSi desea estimar el tiempo para una muestra mayor pulse 1, sino pulse 0.\n";
