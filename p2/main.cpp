@@ -1,70 +1,104 @@
-#include "posicion.hpp"
-#include <vector>
+#include "macros.hpp"
+#include "funcionesAuxiliares.hpp"
 
-int calcularCaminos(int x, int y);
+int menu();
 
 int main(){
 
-    int x = 5;
-    int y;
-    int cont = 0;
-    std::vector<Posicion> vector_pos;
+	int opcion;
+	do{
+	    opcion = menu();
+		std::cout << CLEAR_SCREEN;
+		PLACE(3,1);
+		// Se ejecuta la opción del menú elegida
+		switch(opcion){
+            case 0:
+			    PLACE(3,1);
+				std::cout << BIYELLOW;
+				std::cout << "[0] Fin del programa" << std::endl << std::endl;
+				std::cout << RESET;
+				break;
+			case 1:
+			   	std::cout << BIBLUE;
+				std::cout << "[1] Cualquier casilla inicial" << std::endl;
+				std::cout << RESET;
+                cualquierCasillaInicial();
+                std::cin.ignore();
+				break;
+			case 2:
+			   	std::cout << BIBLUE;
+				std::cout << "[2] Casilla inicial (1,2)" << std::endl;
+				std::cout << RESET;
+                //LLAMAR METODO
+				break;
+			case 3:
+			   	std::cout << BIBLUE;
+				std::cout << "[3] Casilla inicial (1,7)" << std::endl;
+				std::cout << RESET;
+                //LLAMAR METODO
+				break;
+			default:
+				std::cout << BIRED;
+				std::cout << "Opción incorrecta ";
+				std::cout << RESET;
+				std::cout << "--> ";
+			  	std::cout << ONIRED;
+				std::cout << opcion << std::endl;
+				std::cout << RESET;
+        }
 
-    std::cout<<"Introduzca la coordenada 'y' de la octava fila\n";
-    std::cin>>y;
-    if((y < 1) || (y > 8)){
-        std::cerr<<"Error: numeros entre 1 y 8\n";
-        return 0;
-    }
-
-    Posicion p(x,y);
-
-    std::cout<<"Existen "<<calcularCaminos(p.getX(),p.getY())<<" formas de alcanzar la posicion ("<<p.getX()<<","<<p.getY()<<")\n";
+        if (opcion !=0){
+            std::cout << "Para mostrar el ";
+            std::cout << BIGREEN ;
+            std::cout << "menú, ";
+            std::cout << RESET;
+            std::cout << "pulse ";
+            std::cout << INVERSE ;
+            std::cout << "ENTER";
+            std::cout << RESET;
+		    // Pausa
+		    std::cin.ignore();
+		    std::cout << CLEAR_SCREEN;
+        }
+	}while(opcion!=0);
 
 
     return 0;
 }
 
-int calcularCaminos(int x, int y){
+int menu(){
+ int opcion, posicion;
+	// Se muestran las opciones del menú
+	posicion=2;
+	// Se borra la pantalla
+	std::cout << CLEAR_SCREEN;
 
-    if( (x > 8) || (y > 8)){
-        return 0;
-    }else{
-        if( (x < 1) || (y < 1) ){
-            return 0;
-        }else{
-            if( x < 2){
-                return 1;
-            }else{
-                return calcularCaminos(x-1,y-2) + calcularCaminos(x-2,y-1) + calcularCaminos(x-2,y+1) + calcularCaminos(x-1,y+2);
-            }
-        }
-    }
+	PLACE(posicion++,10);
+	std::cout << BIBLUE;
+	std::cout << "Programa principal | Opciones del menú   ";
+	std::cout << RESET;
+	posicion++;
 
-    //casos base
-    /*if(p.getX() == 0){
-        return 0;
-    }
-    if(p.getX() < 2){
-        if( (p.getY() == 0) || (p.getY() == 1) || (p.getY() == 6) || (p.getY() == 7) ){
-            return numero_caminos + 1;
-        }else{
-            return numero_caminos + 2;
-        }
-    }
+	PLACE(posicion++,10);
+	std::cout << "[1] Cualquier casilla inicial" << std::endl;
+	PLACE(posicion++,10);
+	std::cout << "[2] Casilla inicial (1,2)" << std::endl;
+    	PLACE(posicion++,10);
+	std::cout << "[3] Casilla inicial (1,7)" << std::endl;
+	posicion++;
 
-    //ejecucion
-    if( (p.getY() == 8) || (p.getY() == 0) ){
-        return calcularCaminos(p.setX(p.getX() - 1) p.setY(),numero_caminos + 2) + calcularCaminos(p.setX())
-    }
-    if( (p.getY() == 1) || (p.getY() == 7) ){
-        numero_caminos += 3;
-    }
-    if( (p.getY() > 1) && (p.getY() < 7) ){
-        numero_caminos += 4;
-    }
+	PLACE(posicion++,10);
+	std::cout << BIRED;
+	std::cout << "[0] Fin del programa " << std::endl;
+	std::cout << RESET;
+	posicion++;
 
-    p.setX(p.getX() - 1);
-    p.setY(p.getY())
-    return calcularCaminos(p,numero_caminos);*/
+	PLACE(posicion++,10);
+	std::cout << BIYELLOW;
+	std::cout << "Opción: ";
+	std::cout << RESET;
+	std::cin >> opcion;
+   	// Se elimina el salto de línea del flujo de entrada
+    std::cin.ignore();
+	return opcion;
 }

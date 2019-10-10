@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/practica2.exe.dir/main.cpp.o CMakeFiles/practica2.exe.dir/funcionesAuxiliares.cpp.o CMakeFiles/practica2.exe.dir/caballo.cpp.o  -o practica2.exe 

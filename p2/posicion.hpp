@@ -9,7 +9,11 @@ class Posicion{
         int y_;
 
     public:
-        Posicion(int x,int y){
+        Posicion(){//constructor sin argumentos
+            setX(0);
+            setY(0);
+        }
+        Posicion(int x,int y){//constructor pasandole las coordenadas
             setX(x);
             setY(y);
         }

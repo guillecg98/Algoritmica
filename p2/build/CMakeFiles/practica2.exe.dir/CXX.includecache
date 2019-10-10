@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/gecoga98/Escritorio/4º/Algoritmica/p2/caballo.cpp
+caballo.hpp
+/home/gecoga98/Escritorio/4º/Algoritmica/p2/caballo.hpp
+
+/home/gecoga98/Escritorio/4º/Algoritmica/p2/caballo.hpp
+posicion.hpp
+/home/gecoga98/Escritorio/4º/Algoritmica/p2/posicion.hpp
+vector
+-
+
+/home/gecoga98/Escritorio/4º/Algoritmica/p2/funcionesAuxiliares.cpp
+funcionesAuxiliares.hpp
+/home/gecoga98/Escritorio/4º/Algoritmica/p2/funcionesAuxiliares.hpp
+
+/home/gecoga98/Escritorio/4º/Algoritmica/p2/funcionesAuxiliares.hpp
+caballo.hpp
+/home/gecoga98/Escritorio/4º/Algoritmica/p2/caballo.hpp
+
+/home/gecoga98/Escritorio/4º/Algoritmica/p2/macros.hpp
+stdio.h
+-
+
+/home/gecoga98/Escritorio/4º/Algoritmica/p2/main.cpp
+macros.hpp
+/home/gecoga98/Escritorio/4º/Algoritmica/p2/macros.hpp
+funcionesAuxiliares.hpp
+/home/gecoga98/Escritorio/4º/Algoritmica/p2/funcionesAuxiliares.hpp
+
+/home/gecoga98/Escritorio/4º/Algoritmica/p2/posicion.hpp
+iostream
+-
+
