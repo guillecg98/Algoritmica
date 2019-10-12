@@ -1,7 +1,6 @@
 #include "caballo.hpp"
 
-int calcularCaminos(int x, int y,std::vector<Posicion> &vector_pos,std::vector<std::vector<Posicion>> &matriz_caminos){
-    Posicion p;
+int calcularCaminosFinalInicio(int x, int y, std::vector<Posicion> vector_pos, std::vector<std::vector<Posicion>> &matriz_caminos){
 
     if( (x > 8) || (y > 8)){//casos absurdos
         return 0;
@@ -10,28 +9,37 @@ int calcularCaminos(int x, int y,std::vector<Posicion> &vector_pos,std::vector<s
         return 0;
     }
 
+    Posicion p;
     p.setX(x);
     p.setY(y);
-    if(!inside(matriz_caminos,p)){
-        vector_pos.push_back(p);
-    }
+    vector_pos.push_back(p);
 
     if( x < 2){
         matriz_caminos.push_back(vector_pos);
-        //vector_pos.clear();
         return 1;
     }else{
-        return calcularCaminos(x-1,y-2,vector_pos, matriz_caminos) + calcularCaminos(x-2,y-1,vector_pos, matriz_caminos) + calcularCaminos(x-2,y+1,vector_pos, matriz_caminos) + calcularCaminos(x-1,y+2,vector_pos, matriz_caminos);
+        return calcularCaminosFinalInicio(x-1,y-2,vector_pos,matriz_caminos) + calcularCaminosFinalInicio(x-2,y-1,vector_pos,matriz_caminos) + calcularCaminosFinalInicio(x-2,y+1,vector_pos,matriz_caminos) + calcularCaminosFinalInicio(x-1,y+2,vector_pos,matriz_caminos);
     }
 }
 
-bool inside(std::vector<std::vector<Posicion>> &matriz_caminos, Posicion p){
-    for(int i = 0; i < matriz_caminos.size(); i++){
-        for(int j = 0; j < matriz_caminos[i].size(); j++){
-            if( (p.getX() == matriz_caminos[i][j].getX()) && (p.getY() == matriz_caminos[i][j].getY()) ){
-                return true;
-            }
-        }
+int calcularCaminosInicioFin(int x, int y,std::vector<Posicion> vector_pos, std::vector<std::vector<Posicion>> &matriz_caminos){
+
+    if( (x > 8) || (y > 8)){//casos absurdos
+        return 0;
     }
-    return false;
+    if( (x < 1) || (y < 1) ){//casos absurdos
+        return 0;
+    }
+
+    Posicion p;
+    p.setX(x);
+    p.setY(y);
+    vector_pos.push_back(p);
+
+    if( x > 7){
+        matriz_caminos.push_back(vector_pos);
+        return 1;
+    }else{
+        return calcularCaminosInicioFin(x+1,y-2,vector_pos,matriz_caminos) + calcularCaminosInicioFin(x+2,y-1,vector_pos,matriz_caminos) + calcularCaminosInicioFin(x+2,y+1,vector_pos,matriz_caminos) + calcularCaminosInicioFin(x+1,y+2,vector_pos,matriz_caminos);
+    }
 }

@@ -29,13 +29,13 @@ int main(){
 			   	std::cout << BIBLUE;
 				std::cout << "[2] Casilla inicial (1,2)" << std::endl;
 				std::cout << RESET;
-                //LLAMAR METODO
+				cualquierCasillaFinalDesde12();
 				break;
 			case 3:
 			   	std::cout << BIBLUE;
 				std::cout << "[3] Casilla inicial (1,7)" << std::endl;
 				std::cout << RESET;
-                //LLAMAR METODO
+				cualquierCasillaFinalDesde17();
 				break;
 			default:
 				std::cout << BIRED;

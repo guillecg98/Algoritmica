@@ -5,5 +5,7 @@
 
 
 void cualquierCasillaInicial();
+void cualquierCasillaFinalDesde12();
+void cualquierCasillaFinalDesde17();
 
 #endif

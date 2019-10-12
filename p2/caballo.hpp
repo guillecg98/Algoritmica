@@ -4,7 +4,7 @@
 #include "posicion.hpp"
 #include <vector>
 
-int calcularCaminos(int x, int y, std::vector<Posicion> &vector_pos, std::vector<std::vector<Posicion>> &matriz_caminos);
-bool notexist(std::vector<std::vector<Posicion>> &matriz_caminos, Posicion p);
+int calcularCaminosFinalInicio(int x, int y, std::vector<Posicion> vector_pos, std::vector<std::vector<Posicion>> &matriz_caminos);
+int calcularCaminosInicioFin(int x, int y,std::vector<Posicion> vector_pos, std::vector<std::vector<Posicion>> &matriz_caminos);
 
 #endif
