@@ -83,7 +83,7 @@ int menu(){
 	std::cout << "[1] Cualquier casilla inicial" << std::endl;
 	PLACE(posicion++,10);
 	std::cout << "[2] Casilla inicial (1,2)" << std::endl;
-    	PLACE(posicion++,10);
+    PLACE(posicion++,10);
 	std::cout << "[3] Casilla inicial (1,7)" << std::endl;
 	posicion++;
 
