@@ -2,21 +2,23 @@
 #define ENTERO_HPP
 
 #include <iostream>
+#include <string>
 using std::istream;
 using std::ostream;
 
-class Entero {
+class Entero{
     private:
         std::string _num;
 
     public:
-    Entero(std::string num=""){
-        this->setNumero(num);
-    }
-
-    inline std::string getNumero() { return this->_num; }
-    inline void setNumero(std::string num) { this->_num = num; }
-    Entero operator*(std::string num);
+        inline Entero(std::string num=""){
+            this->setNumero(num);
+        }
+        inline std::string getNumero() { return _num; }
+        inline void setNumero(std::string num) { _num = num; }
+        Entero & operator+(Entero &num);
+        Entero & operator*(Entero &num);
+        void agregarCerosDelante(int nCeros);
 };
 
 #endif

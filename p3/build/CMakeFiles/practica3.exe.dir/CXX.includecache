@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/gecoga98/Escritorio/4º/Algoritmica/p3/entero.cpp
+entero.hpp
+/home/gecoga98/Escritorio/4º/Algoritmica/p3/entero.hpp
+
+/home/gecoga98/Escritorio/4º/Algoritmica/p3/entero.hpp
+iostream
+-
+string
+-
+
+/home/gecoga98/Escritorio/4º/Algoritmica/p3/main.cpp
+entero.hpp
+/home/gecoga98/Escritorio/4º/Algoritmica/p3/entero.hpp
+
