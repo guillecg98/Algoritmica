@@ -4,6 +4,12 @@
 CMakeFiles/practica3.exe.dir/entero.cpp.o: ../entero.cpp
 CMakeFiles/practica3.exe.dir/entero.cpp.o: ../entero.hpp
 
+CMakeFiles/practica3.exe.dir/funciones.cpp.o: ../entero.hpp
+CMakeFiles/practica3.exe.dir/funciones.cpp.o: ../funciones.cpp
+CMakeFiles/practica3.exe.dir/funciones.cpp.o: ../funciones.hpp
+
 CMakeFiles/practica3.exe.dir/main.cpp.o: ../entero.hpp
+CMakeFiles/practica3.exe.dir/main.cpp.o: ../funciones.hpp
+CMakeFiles/practica3.exe.dir/main.cpp.o: ../macros.hpp
 CMakeFiles/practica3.exe.dir/main.cpp.o: ../main.cpp
 

@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/gecoga98/Escritorio/4º/Algoritmica/p3/entero.cpp" "/home/gecoga98/Escritorio/4º/Algoritmica/p3/build/CMakeFiles/practica3.exe.dir/entero.cpp.o"
+  "/home/gecoga98/Escritorio/4º/Algoritmica/p3/funciones.cpp" "/home/gecoga98/Escritorio/4º/Algoritmica/p3/build/CMakeFiles/practica3.exe.dir/funciones.cpp.o"
   "/home/gecoga98/Escritorio/4º/Algoritmica/p3/main.cpp" "/home/gecoga98/Escritorio/4º/Algoritmica/p3/build/CMakeFiles/practica3.exe.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

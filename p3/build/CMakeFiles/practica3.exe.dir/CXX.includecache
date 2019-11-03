@@ -16,7 +16,21 @@ iostream
 string
 -
 
-/home/gecoga98/Escritorio/4º/Algoritmica/p3/main.cpp
+/home/gecoga98/Escritorio/4º/Algoritmica/p3/funciones.cpp
+funciones.hpp
+/home/gecoga98/Escritorio/4º/Algoritmica/p3/funciones.hpp
+
+/home/gecoga98/Escritorio/4º/Algoritmica/p3/funciones.hpp
 entero.hpp
 /home/gecoga98/Escritorio/4º/Algoritmica/p3/entero.hpp
+
+/home/gecoga98/Escritorio/4º/Algoritmica/p3/macros.hpp
+stdio.h
+-
+
+/home/gecoga98/Escritorio/4º/Algoritmica/p3/main.cpp
+macros.hpp
+/home/gecoga98/Escritorio/4º/Algoritmica/p3/macros.hpp
+funciones.hpp
+/home/gecoga98/Escritorio/4º/Algoritmica/p3/funciones.hpp
 

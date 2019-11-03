@@ -12,7 +12,37 @@ void Entero::agregarCerosFinal(int nCeros){
     }
 }
 
-Entero & Entero::operator+(Entero &num){
+void Entero::quitarCerosNoSignificativos(){
+    int numero_ceros = 0;
+    for(int i = 0; i<this->getNumero().length()-1; i++){
+        if(this->getNumero()[i] == '0'){
+            numero_ceros++;
+        }else{
+            break;
+        }
+    }
+   this->setNumero(this->getNumero().substr(numero_ceros));
+}
+
+void Entero::partirCadena(Entero &a, Entero &b){
+    int mitad;
+    if(this->getNumero().length() % 2 == 0){//si es par las mitades serán iguales
+        mitad = this->getNumero().length()/2;
+        a.setNumero(this->getNumero().substr(0,mitad));
+        b.setNumero(this->getNumero().substr(mitad));
+    }else{//si la longitud no es par, la primera mitad es la mas significativa
+        mitad = (this->getNumero().length() + 1) / 2;
+        a.setNumero(this->getNumero().substr(0,mitad));
+        b.setNumero(this->getNumero().substr(mitad));
+    }
+}
+
+Entero Entero::multiplicarPotencia10(int potencia){
+	this->agregarCerosFinal(potencia);
+	return *this;
+}
+
+Entero Entero::operator+(Entero num){
     int x,y,res;
     bool acarreo = false;
     std::string resultado = "";
@@ -56,22 +86,37 @@ Entero & Entero::operator+(Entero &num){
     return *this;
 }
 
-Entero & Entero::operator*(Entero &num){
-    int mayor,res;
+Entero Entero::operator*(Entero num){
+    int tamanio_mayor;
 
     if( this->getNumero().length() >= num.getNumero().length() ){
-        mayor = this->getNumero().length();
+        tamanio_mayor = this->getNumero().length();
     }else{
-        mayor = num.getNumero().length();
+        tamanio_mayor = num.getNumero().length();
     }
-
-    if(mayor <= 4){
-        res = stoi(this->getNumero()) * stoi(num.getNumero());
-        this->setNumero(std::to_string(res));
-        return *this;
+    if(tamanio_mayor <= 4){//caso base, multiplicacion normal de enteros de 4 digitos o menos
+        int resultado = stoi(this->getNumero()) * stoi(num.getNumero());
+        return Entero(std::to_string(resultado));
     }else{
-        //hacer la multiplicacion de enteros grandes
-        Entero w(),x(),y(),x();
+        Entero w,x,y,z;
+        int s = tamanio_mayor / 2;
+        //Igualamos los enteros grandes añadiendo ceros no significativos
+        if( this->getNumero().length() > num.getNumero().length() ){
+            num.agregarCerosDelante(this->getNumero().length() - num.getNumero().length());
+        }
+        if( this->getNumero().length() < num.getNumero().length() ){
+            this->agregarCerosDelante(num.getNumero().length() - this->getNumero().length());
+        }
+
+        this->partirCadena(w,x);
+        w.quitarCerosNoSignificativos();
+        x.quitarCerosNoSignificativos();
+
+        num.partirCadena(y,z);
+        y.quitarCerosNoSignificativos();
+        z.quitarCerosNoSignificativos();
+
+        return (w*y).multiplicarPotencia10(2*s) + ((w*z) + (x*y)).multiplicarPotencia10(s) + (x*z);
     }
 }
 

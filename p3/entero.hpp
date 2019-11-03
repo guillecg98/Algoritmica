@@ -11,18 +11,18 @@ class Entero{
         std::string _num;
 
     public:
-        inline Entero(){
-            this->setNumero("");
-        }
         inline Entero(std::string num=""){
             this->setNumero(num);
         }
-        inline std::string getNumero() { return _num; }
+        inline std::string getNumero() const { return _num; }
         inline void setNumero(std::string num) { _num = num; }
-        void agregarCerosDelante(int nCeros);
+        void agregarCerosDelante (int nCeros);
         void agregarCerosFinal(int nCeros);
-        Entero & operator+(Entero &num);
-        Entero & operator*(Entero &num);
+        void quitarCerosNoSignificativos();
+        void partirCadena(Entero &a, Entero &b);
+        Entero multiplicarPotencia10(int potencia);
+        Entero operator+(Entero num);
+        Entero operator*(Entero num);
 };
 
 istream &operator>>(istream &stream, Entero &num);

@@ -150,6 +150,33 @@ entero.cpp.s:
 	$(MAKE) -f CMakeFiles/practica3.exe.dir/build.make CMakeFiles/practica3.exe.dir/entero.cpp.s
 .PHONY : entero.cpp.s
 
+funciones.o: funciones.cpp.o
+
+.PHONY : funciones.o
+
+# target to build an object file
+funciones.cpp.o:
+	$(MAKE) -f CMakeFiles/practica3.exe.dir/build.make CMakeFiles/practica3.exe.dir/funciones.cpp.o
+.PHONY : funciones.cpp.o
+
+funciones.i: funciones.cpp.i
+
+.PHONY : funciones.i
+
+# target to preprocess a source file
+funciones.cpp.i:
+	$(MAKE) -f CMakeFiles/practica3.exe.dir/build.make CMakeFiles/practica3.exe.dir/funciones.cpp.i
+.PHONY : funciones.cpp.i
+
+funciones.s: funciones.cpp.s
+
+.PHONY : funciones.s
+
+# target to generate assembly for a file
+funciones.cpp.s:
+	$(MAKE) -f CMakeFiles/practica3.exe.dir/build.make CMakeFiles/practica3.exe.dir/funciones.cpp.s
+.PHONY : funciones.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -189,6 +216,9 @@ help:
 	@echo "... entero.o"
 	@echo "... entero.i"
 	@echo "... entero.s"
+	@echo "... funciones.o"
+	@echo "... funciones.i"
+	@echo "... funciones.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/practica3.exe.dir/main.cpp.o"
+  "CMakeFiles/practica3.exe.dir/funciones.cpp.o"
   "CMakeFiles/practica3.exe.dir/entero.cpp.o"
   "practica3.exe.pdb"
   "practica3.exe"
