@@ -34,8 +34,9 @@ GreedyMethod::~GreedyMethod()
 void GreedyMethod::apply()
 {
   //Completar
-  calculateSummations();
+	calculateSummations();
   collinearPointsElimination();
-  //Completar
+
+  
 }
 
