@@ -37,6 +37,13 @@ void GreedyMethod::apply()
 	calculateSummations();
   collinearPointsElimination();
 
-  
+  std::vector<int> optimalDominantPointsPosition;
+
+  int numberOfIncrement = this->getDominantPointsPosition().size() / (this->getNumberPointsPolygonalApproximation() - 1);
+  for(int i = 0; i < this->getDominantPointsPosition().size(); i+numberOfIncrement){
+    optimalDominantPointsPosition.push_back(this->getDominantPointsPosition()[i]);
+  }
+  setDominantPointsPosition(optimalDominantPointsPosition);
+  //ya tenemos el vector con los puntos (sin computar) que nos interesan
 }
 
