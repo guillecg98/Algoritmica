@@ -17,6 +17,7 @@ class GreedyMethod:public Algorithm
 		double error(int a, int b);
 		int encontrarPosicionMenorError(std::vector<double> &sumaErroresTotales);
 		int getPositionOfAPoint(int value);
+		void imprimeVector(std::vector<int> vec);
 };
 
 
