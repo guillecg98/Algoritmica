@@ -22,8 +22,8 @@ int main(){
 			   std::cout << BIBLUE;
 				std::cout << "[1] Suppression Method" << std::endl;
 				std::cout << RESET;
-            suppressionMethod();
-            std::cin.ignore();
+            	suppressionMethod();
+            	std::cin.ignore();
 				break;
 			case 2:
 			   std::cout << BIBLUE;

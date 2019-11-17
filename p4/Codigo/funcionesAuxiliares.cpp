@@ -39,7 +39,16 @@ void greedyMethod(){
     cin>>n;
 
     a = new GreedyMethod(fileNameDC,n);
-
+    std::cerr<<"Se instancia la clase GreedyMethod\n";
     a->apply();
     //terminar esto
+    cout << "Number of points of the polygonal approxmation: " << a->getNumberPointsPolygonalApproximation() << endl;
+    cout << "The value of ISE is " << a->getISE() << endl;
+
+    DigitalCurve aP = a->getPolygonalApproximation();
+
+    cout << "Name of file to save the polygonal approximation: ";
+    cin >> fileNamePA;
+
+    aP.saveDigitalCurve(fileNamePA);
 }
