@@ -60,17 +60,18 @@ void GreedyMethod::apply()
       }
       posicionOptima = encontrarPosicionMenorError(sumaErroresTotales);
       interestDominantPointsPosition[i] = getDominantPointsPosition()[posicionOptima];//actualizamos el vector de puntos interesados con la posicion más optima
-    }else{//para el primer/ultimo elemento dividiremos los elementos que hay desde el penultimo elemento por un lado
+    }else{//cuadno es el primer o ultimo elemento, para un lado dividimos los elementos que hay desde el elemento [0] hasta el primer interesado
+      for(int j = getPositionOfAPoint(interestDominantPointsPosition[0])+1; j < getPositionOfAPoint(interestDominantPointsPosition[1]); j++){
+        sumaErroresTotales.push_back(
+          error(interestDominantPointsPosition[0],getDominantPointsPosition()[j]) +
+          error(getDominantPointsPosition()[j],interestDominantPointsPosition[1])//hasta el primero
+        );
+      }
+      //y para el otro, dividiremos los elementos que hay desde el penultimo elemento hasta el ultimo/primero
       for(int j = getPositionOfAPoint(interestDominantPointsPosition[interestDominantPointsPosition.size()-1])+1; j < interestDominantPointsPosition.size(); j++){
         sumaErroresTotales.push_back(
           error(interestDominantPointsPosition[interestDominantPointsPosition.size()-1],getDominantPointsPosition()[j]) +
           error(getDominantPointsPosition()[j],interestDominantPointsPosition[interestDominantPointsPosition.size()])//el ultimo incluido
-        );
-      }
-      for(int j = getPositionOfAPoint(interestDominantPointsPosition[0])+1; j < getPositionOfAPoint(interestDominantPointsPosition[1]); j++){// y por otro lado los elementos que hay desde el elemento [0] hasta el primer interesado
-        sumaErroresTotales.push_back(
-          error(getDominantPointsPosition()[1],getDominantPointsPosition()[j]) +
-          error(getDominantPointsPosition()[j],interestDominantPointsPosition[1])//hasta el primero
         );
       }
       posicionOptima = encontrarPosicionMenorError(sumaErroresTotales);
