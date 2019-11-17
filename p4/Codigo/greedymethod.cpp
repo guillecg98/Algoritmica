@@ -34,47 +34,39 @@ GreedyMethod::~GreedyMethod()
 void GreedyMethod::apply()
 {
   //Completar
-	calculateSummations();
+  calculateSummations();
   collinearPointsElimination();
 
   int posicionOptima;
   std::vector<double> sumaErroresTotales;
-  std::vector<int> optimalDominantPointsPosition;
-  int numberOfIncrement = getDominantPointsPosition().size() / (getNumberPointsPolygonalApproximation() - 1);
+  std::vector<int> interestDominantPointsPosition;//vector en el que en primer lugar guardamos las posiciones de los puntos que nos interesan
 
-  for(int i = 0; i < getDominantPointsPosition().size(); i+numberOfIncrement){
-    optimalDominantPointsPosition.push_back(getDominantPointsPosition()[i]);
+  int increments = getDominantPointsPosition().size() / (getNumberPointsPolygonalApproximation() - 1);
+  for(int i = 0; i < getDominantPointsPosition().size(); i+increments){
+    interestDominantPointsPosition.push_back(getDominantPointsPosition()[i]);
   }
-
-  setDominantPointsPosition(optimalDominantPointsPosition);
-  //ya tenemos el vector con los puntos (sin computar) que nos interesan
 
 
   //Algoritmo voraz que busca la posicion más optima de cada punto
-  for(int i = 0; i < getDominantPointsPosition().size(); i++){
+  for(int i = 0; i < interestDominantPointsPosition.size(); i++){
     sumaErroresTotales.clear();
-    if( (i != 0) && (i != getDominantPointsPosition().size()-1) ){
+    if( (i != 0) && (i != interestDominantPointsPosition.size()-1) ){
       //hacer todos los puntos desde el [i]
-      calculoSumasErroresTotales(sumaErroresTotales,i);
+      for(int j = getPositionOfAPoint(interestDominantPointsPosition[i-1])+1; j < getPositionOfAPoint(interestDominantPointsPosition[i+1]); j++){
+        sumaErroresTotales.push_back(
+          error(interestDominantPointsPosition[i-1],getDominantPointsPosition()[j]) +
+          error(getDominantPointsPosition()[j],interestDominantPointsPosition[i+1])
+        );
+      }
       posicionOptima = encontrarPosicionMenorError(sumaErroresTotales);
+      interestDominantPointsPosition[i] = getDominantPointsPosition()[posicionOptima];//sustituimos en
     }
   }
+  setDominantPointsPosition(interestDominantPointsPosition);//finalmente seteamos el vector resultado al algoritmo
 }
 
 double GreedyMethod::error(int a, int b){
-  return std::abs(getDominantPointsPosition()[a] - getDominantPointsPosition()[b]);
-}
-
-void GreedyMethod::calculoSumasErroresTotales(std::vector<double> &sumaErroresTotales,int i){
-  for(int j = 0; j < getDominantPointsPosition().size(); j++){
-    if(i != j){
-      sumaErroresTotales.push_back(
-        error(getDominantPointsPosition()[i-1],getDominantPointsPosition()[i]) +
-        error(getDominantPointsPosition()[i],getDominantPointsPosition()[i+j])
-      );
-    }
-  }
-
+  return std::abs(a - b);
 }
 
 int GreedyMethod::encontrarPosicionMenorError(std::vector<double> &sumaErroresTotales){
@@ -86,7 +78,16 @@ int GreedyMethod::encontrarPosicionMenorError(std::vector<double> &sumaErroresTo
        pos = i;
      }
    }
+   return pos+1; //ya que para mover los puntos empezamos desde el elemento[1] y no desde el [0]
+}
 
-   return pos;
+int GreedyMethod::getPositionOfAPoint(int value){
+  int position = 0;
+  for(int i = 0; i < getDominantPointsPosition().size(); i++){
+    if(value == getDominantPointsPosition()[i]){
+      position = i;
+    }
+  }
+  return position;
 }
 
