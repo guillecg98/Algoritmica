@@ -15,7 +15,7 @@ class GreedyMethod:public Algorithm
 		//This method calculates the polygonal approximation
 		void apply();
 		double error(int a, int b);
-		int encontrarPosicionMenorError(std::vector<double> &sumaErroresTotales);
+		int encontrarPosicionMenorError(std::vector<int> &sumaErroresTotales);
 		int getPositionOfAPoint(int value);
 		void imprimeVector(std::vector<int> vec);
 };

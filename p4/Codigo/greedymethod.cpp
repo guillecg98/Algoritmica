@@ -38,7 +38,7 @@ void GreedyMethod::apply()
   collinearPointsElimination();
 
   int posicionOptima;
-  std::vector<double> sumaErroresTotales;
+  std::vector<int> sumaErroresTotales;
   std::vector<int> interestDominantPointsPosition;//vector en el que en primer lugar guardamos las posiciones de los puntos que nos interesan
 
   int increments = getDominantPointsPosition().size() / (getNumberPointsPolygonalApproximation() - 1);
@@ -47,13 +47,13 @@ void GreedyMethod::apply()
     interestDominantPointsPosition.push_back(getDominantPointsPosition()[i]);
   }
 
-    std::cerr<<"Vector de Interesados = \n";
+  std::cerr<<"Vector de Interesados = \n";
   imprimeVector(interestDominantPointsPosition);
 
   //Algoritmo voraz que busca la posicion más optima de cada punto
-  for(int i = 0; i < interestDominantPointsPosition.size(); i++){
+  for(int i = 1; i < interestDominantPointsPosition.size(); i++){
     sumaErroresTotales.clear();
-    if( (i != 0) && (i != interestDominantPointsPosition.size()-1) ){
+    if(i != interestDominantPointsPosition.size()-1){
       //hacer todos los puntos desde el [i]
       for(int j = getPositionOfAPoint(interestDominantPointsPosition[i-1])+1; j < getPositionOfAPoint(interestDominantPointsPosition[i+1]); j++){
         sumaErroresTotales.push_back(
@@ -63,27 +63,12 @@ void GreedyMethod::apply()
       }
       posicionOptima = encontrarPosicionMenorError(sumaErroresTotales);
       interestDominantPointsPosition[i] = getDominantPointsPosition()[posicionOptima];//actualizamos el vector de puntos interesados con la posicion más optima
-    }else{//cuadno es el primer o ultimo elemento, para un lado dividimos los elementos que hay desde el elemento [0] hasta el primer interesado
-      for(int j = getPositionOfAPoint(interestDominantPointsPosition[0])+1; j < getPositionOfAPoint(interestDominantPointsPosition[1]); j++){
-        sumaErroresTotales.push_back(
-          error(interestDominantPointsPosition[0],getDominantPointsPosition()[j]) +
-          error(getDominantPointsPosition()[j],interestDominantPointsPosition[1])//hasta el primero
-        );
-      }
-      //y para el otro, dividiremos los elementos que hay desde el penultimo elemento hasta el ultimo/primero
-      for(int j = getPositionOfAPoint(interestDominantPointsPosition[interestDominantPointsPosition.size()-1])+1; j < interestDominantPointsPosition.size(); j++){
-        sumaErroresTotales.push_back(
-          error(interestDominantPointsPosition[interestDominantPointsPosition.size()-1],getDominantPointsPosition()[j]) +
-          error(getDominantPointsPosition()[j],interestDominantPointsPosition[interestDominantPointsPosition.size()])//el ultimo incluido
-        );
-      }
-      posicionOptima = encontrarPosicionMenorError(sumaErroresTotales);
-      interestDominantPointsPosition[i] = getDominantPointsPosition()[posicionOptima];//actualizamos el vector de puntos interesados con la posicion más optima
     }
   }
-
   std::cerr<<"Vector de Dominantes = \n";
   imprimeVector(getDominantPointsPosition());
+  std::cerr<<"Vector de Interesados = \n";
+  imprimeVector(interestDominantPointsPosition);
 
   setDominantPointsPosition(interestDominantPointsPosition);//finalmente seteamos el vector resultado al algoritmo
   //se llama a la funcion encargada de calcular la aproximacion poligonal
@@ -101,7 +86,7 @@ double GreedyMethod::error(int a, int b){
   return (a - b);
 }
 
-int GreedyMethod::encontrarPosicionMenorError(std::vector<double> &sumaErroresTotales){
+int GreedyMethod::encontrarPosicionMenorError(std::vector<int> &sumaErroresTotales){
    double menorError = sumaErroresTotales[0];
    int pos = 0;
    for(int i = 1; i < sumaErroresTotales.size(); i++){
