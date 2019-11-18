@@ -14,8 +14,6 @@ class GreedyMethod:public Algorithm
 		//Inherited method from algorithm class. It must be implemented in all inherited classes
 		//This method calculates the polygonal approximation
 		void apply();
-		int getPositionOfAPoint(int value);
-		void imprimeVector(std::vector<int> vec);
 };
 
 

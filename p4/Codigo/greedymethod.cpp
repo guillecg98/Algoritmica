@@ -52,9 +52,6 @@ void GreedyMethod::apply()
 
   setDominantPointsPosition(interestDominantPointsPosition);
 
-  std::cerr<<"Vector de Dominantes = \n";
-  imprimeVector(getDominantPointsPosition());
-
   //Algoritmo voraz que busca la posicion más optima de cada punto
   for(int i = 1; i < getDominantPointsPosition().size(); i++){
     double suma = 0;
@@ -72,28 +69,8 @@ void GreedyMethod::apply()
       interestDominantPointsPosition[i] = pos;//actualizamos el vector de puntos interesados con la posicion más optima
   }
 
-  std::cerr<<"Vector de Interesados = \n";
-  imprimeVector(interestDominantPointsPosition);
-
   setDominantPointsPosition(interestDominantPointsPosition);//finalmente seteamos el vector resultado al algoritmo
   //se llama a la funcion encargada de calcular la aproximacion poligonal
   calculatePolygonalApproximation();
-}
-
-//este metodo se ha codificado para comprobar los vectores
-void GreedyMethod::imprimeVector(std::vector<int> vec){
-  for(int i = 0; i < vec.size(); i++){
-    std::cerr<<"v["<<i+1<<"] = "<<vec[i]<<"\n";
-  }
-}
-
-int GreedyMethod::getPositionOfAPoint(int value){
-  int position = 0;
-  for(int i = 0; i < getDominantPointsPosition().size(); i++){
-    if(value == getDominantPointsPosition()[i]){
-      position = i;
-    }
-  }
-  return position;
 }
 

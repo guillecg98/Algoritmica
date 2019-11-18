@@ -37,8 +37,7 @@ void greedyMethod(){
 
     cout << "Number of points of the polygonal approximation: ";
     cin>>n;
-    std::cerr<<"n = "<<n<<"\n";
-    
+
     a = new GreedyMethod(fileNameDC,n);
     std::cerr<<"Se instancia la clase GreedyMethod\n";
     a->apply();
