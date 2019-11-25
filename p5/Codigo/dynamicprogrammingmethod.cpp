@@ -13,26 +13,42 @@ DynamicProgrammingMethod::~DynamicProgrammingMethod()
 }
 
 void DynamicProgrammingMethod::apply(){
+
     calculateSummations();
 
-    std::vector<int> interestDominantPointsPosition;//vector en el que en primer lugar guardamos las posiciones de los puntos que nos interesan
+    double min;
+    std::vector<int> interestPointsPosition;
+    int puntosCurva = getOriginalCurve().getNumberPointsDigitalCurve();
+    int puntosAproximacion = getNumberPointsPolygonalApproximation();
 
-    int increments = getDominantPointsPosition().size() / (getNumberPointsPolygonalApproximation() - 1);
-    int value = 0;
+    Matrix E(puntosCurva,puntosAproximacion);
+    Matrix Father(puntosCurva,puntosAproximacion);
 
-    for(int i = 0; i < getNumberPointsPolygonalApproximation(); i++){
-        interestDominantPointsPosition.push_back(getDominantPointsPosition()[value]);
-        value += increments;
+    //Rellenamos la primera columna de la matriz de errores con los casos particulares
+    for(int m = 1; m < 2; m++){
+        E.setElement(1,m,0);
+        for(int n = 2; n < puntosCurva; n++){
+            E.setElement(n,m,9999);
+        }
     }
-
-    setDominantPointsPosition(interestDominantPointsPosition);
-
+    E.printMatrix();
     /*              ALGORITMO                          */
+    /*for(int m = 2; m < puntosAproximacion; m++){
+        for(int n = 2; n < puntosCurva; n++){
+            min = E.getElement(2,1);
+            for(int j = m-1; j <= n-1; j++){
+                if(){
+                min = E[m-1][m-1] + calculateISEValue(j-1,n-1);
+                }
+            }
+            E[n][m] = min;//error minimo
+            Father[n][m] = 1;//
+        }
+    }*/
 
 
 
-
-    setDominantPointsPosition(interestDominantPointsPosition);//finalmente seteamos el vector resultado al algoritmo
+    setDominantPointsPosition(interestPointsPosition);//finalmente seteamos el vector resultado al algoritmo
     //se llama a la funcion encargada de calcular la aproximacion poligonal
     calculatePolygonalApproximation();
 }

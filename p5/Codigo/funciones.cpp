@@ -39,7 +39,6 @@ void dynamicProgrammingMethod(){
     cin>>n;
 
     a = new DynamicProgrammingMethod(fileNameDC,n);
-    std::cerr<<"Se instancia la clase GreedyMethod\n";
     a->apply();
     //terminar esto
     cout << "Number of points of the polygonal approxmation: " << a->getNumberPointsPolygonalApproximation() << endl;

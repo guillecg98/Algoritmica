@@ -27,9 +27,9 @@ int main(){
 				break;
 			case 2:
 			   std::cout << BIBLUE;
-				std::cout << "[2] Greedy Method" << std::endl;
+				std::cout << "[2] Dynamic Programming Method" << std::endl;
 				std::cout << RESET;
-				//dynamicProgrammingMethod();
+				dynamicProgrammingMethod();
 				std::cin.ignore();
 				break;
 			default:
@@ -77,7 +77,7 @@ int menu(){
 	PLACE(posicion++,10);
 	std::cout << "[1] Suppression Method" << std::endl;
 	PLACE(posicion++,10);
-	std::cout << "[2] Greedy Method" << std::endl;
+	std::cout << "[2] Dynamic Programming Method" << std::endl;
 
 	PLACE(posicion++,10);
 	std::cout << BIRED;
