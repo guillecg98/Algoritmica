@@ -11,6 +11,7 @@ public:
     DynamicProgrammingMethod(char * fileName, int numberPointsPolygonalApproximation);
     ~DynamicProgrammingMethod();
     void apply();
+    bool exist(int number, std::vector<int> &interestPointsPosition);
 };
 
 

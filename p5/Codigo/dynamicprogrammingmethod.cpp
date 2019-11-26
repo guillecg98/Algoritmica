@@ -26,17 +26,15 @@ void DynamicProgrammingMethod::apply(){
     Matrix Father(puntosCurva+1,puntosAproximacion+1);
 
     //Rellenamos la primera columna de la matriz de errores con los casos particulares
-    for(int m = 1; m < 2; m++){
-        E.setElement(1,m,0);
-        for(int n = 2; n < puntosCurva; n++){
-            E.setElement(n,m,9999);
-        }
+    E.setElement(1,1,0);
+    for(int n = 2; n < puntosCurva; n++){
+        E.setElement(n,1,9999);
     }
 
     /*              ALGORITMO                          */
     for(int m = 2; m <= puntosAproximacion; m++){
         for(int n = 2; n <= puntosCurva; n++){
-            min = E.getElement(n,m-1);
+            min = E.getElement(2,1);
             for(int j = m-1; j <= n-1; j++){
                 if( (E.getElement(j,m-1) + calculateISEValue(j-1,n-1)) < min){
                 min = E.getElement(j,m-1) + calculateISEValue(j-1,n-1);
@@ -48,18 +46,15 @@ void DynamicProgrammingMethod::apply(){
         }
     }
 
-    int i = Father.getRows()-1;
-    int j = Father.getColumns()-1;
-    while(Father.getElement(i,j) != 1){
-        if( Father.getElement(i,j) == Father.getElement(i-1,j) ){
-            i--;
-        }else{
-            interestPointsPosition.push_back(Father.getElement(i-1,j)-1);
-            j --;
-        }
-    }
+    std::cerr<<"\nMatriz E:\n";
+    E.printMatrix();
 
-    std::cout<<"Tamaño dominantes = "<<interestPointsPosition.size()<<"\n";
+    std::cerr<<"\nMatriz Father:\n";
+    Father.printMatrix();
+
+    //interestPointsPosition = {1,2,9,15,16,17,22,30,39,47,48,49,50,54,56,60};
+
+    std::cout<<"\nTamaño dominantes = "<<interestPointsPosition.size()<<"\n";
 
     setDominantPointsPosition(interestPointsPosition);//finalmente seteamos el vector resultado al algoritmo
     //se llama a la funcion encargada de calcular la aproximacion poligonal
