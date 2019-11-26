@@ -55,14 +55,16 @@ void DynamicProgrammingMethod::apply(){
     int i = Father.getRows()-1;
     int j = Father.getColumns()-1;
     interestPointsPosition.push_back(Father.getElement(i,j)-1);
-    i--;
-    j--;
-    while(Father.getElement(i,j) > 0){
-        if(Father.getElement(i-1,j) != Father.getElement(i,j)){
-            interestPointsPosition.push_back(Father.getElement(i,j)-1);
+    while(puntosAproximacion > 0){
+        if(Father.getElement(i-1,j-1) == Father.getElement(i,j)){
+            i--;
+            puntosAproximacion--;
+        }else{
+            interestPointsPosition.push_back(Father.getElement(i-1,j-1)-1);
+            i--;
+            j--;
+            puntosAproximacion--;
         }
-        i--;
-        j--;
     }
 
 
