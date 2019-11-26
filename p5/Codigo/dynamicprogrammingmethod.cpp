@@ -36,7 +36,7 @@ void DynamicProgrammingMethod::apply(){
     /*              ALGORITMO                          */
     for(int m = 2; m <= puntosAproximacion; m++){
         for(int n = 2; n <= puntosCurva; n++){
-            min = E.getElement(2,1);
+            min = E.getElement(n,m-1);
             for(int j = m-1; j <= n-1; j++){
                 if( (E.getElement(j,m-1) + calculateISEValue(j-1,n-1)) < min){
                 min = E.getElement(j,m-1) + calculateISEValue(j-1,n-1);
@@ -44,17 +44,17 @@ void DynamicProgrammingMethod::apply(){
                 }
             }
             E.setElement(n,m,min);//error minimo
-            Father.setElement(n,m,posAnterior);//
+            Father.setElement(n,m,posAnterior);//El valor de j que minimiza la expresion
         }
     }
 
     int i = Father.getRows()-1;
     int j = Father.getColumns()-1;
-    while(Father.getElement(i,j) != 0){
+    while(Father.getElement(i,j) != 1){
         if( Father.getElement(i,j) == Father.getElement(i-1,j) ){
             i--;
         }else{
-            interestPointsPosition.push_back(Father.getElement(i-1,j));
+            interestPointsPosition.push_back(Father.getElement(i-1,j)-1);
             j --;
         }
     }
