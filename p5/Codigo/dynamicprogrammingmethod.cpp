@@ -52,7 +52,19 @@ void DynamicProgrammingMethod::apply(){
     std::cerr<<"\nMatriz Father:\n";
     Father.printMatrix();
 
-    //interestPointsPosition = {1,2,9,15,16,17,22,30,39,47,48,49,50,54,56,60};
+    int i = Father.getRows()-1;
+    int j = Father.getColumns()-1;
+    interestPointsPosition.push_back(Father.getElement(i,j)-1);
+    i--;
+    j--;
+    while(Father.getElement(i,j) > 0){
+        if(Father.getElement(i-1,j) != Father.getElement(i,j)){
+            interestPointsPosition.push_back(Father.getElement(i,j)-1);
+        }
+        i--;
+        j--;
+    }
+
 
     std::cout<<"\nTamaño dominantes = "<<interestPointsPosition.size()<<"\n";
 
