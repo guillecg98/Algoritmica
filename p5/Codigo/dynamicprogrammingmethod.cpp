@@ -52,21 +52,39 @@ void DynamicProgrammingMethod::apply(){
     std::cerr<<"\nMatriz Father:\n";
     Father.printMatrix();
 
-    int i = Father.getRows()-1;
-    int j = Father.getColumns()-1;
-    interestPointsPosition.push_back(Father.getElement(i,j)-1);
-    while(puntosAproximacion > 0){
+
+     int i = Father.getRows()-1;
+     int j = Father.getColumns()-1;
+     interestPointsPosition.push_back(Father.getElement(i,j)-1);
+     while(j > 1){
+        int cont = 0;
+        int newI;
         if(Father.getElement(i-1,j-1) == Father.getElement(i,j)){
-            i--;
-            puntosAproximacion--;
-        }else{
-            interestPointsPosition.push_back(Father.getElement(i-1,j-1)-1);
-            i--;
             j--;
-            puntosAproximacion--;
+            i--;
+            newI = i;
+            do{
+                newI--;
+            } while ( (Father.getElement(newI-1,j) == Father.getElement(i,j)) && (newI > 2) );
+            if(Father.getElement(newI,j) < 1){
+                Father.setElement(newI,j,1);
+            }
+            interestPointsPosition.push_back(Father.getElement(newI,j)-1);
+        }else{
+            j--;
+            i--;
+            if(Father.getElement(i,j) < 1){
+                Father.setElement(i,j,1);
+            }
+            interestPointsPosition.push_back(Father.getElement(i,j)-1);
         }
     }
 
+
+    //vector de dominantes
+    for(int i = 0; i < interestPointsPosition.size(); i++){
+        std::cerr<<interestPointsPosition[i]<<"\n";
+    }
 
     std::cout<<"\nTamaño dominantes = "<<interestPointsPosition.size()<<"\n";
 
