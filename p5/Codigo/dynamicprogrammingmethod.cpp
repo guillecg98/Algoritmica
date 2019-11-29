@@ -52,16 +52,15 @@ void DynamicProgrammingMethod::apply(){
     std::cerr<<"\nMatriz Father:\n";
     Father.printMatrix();
 
+    int i = Father.getRows()-1;
+    int j = Father.getColumns()-1;
+    interestPointsPosition.push_back(Father.getElement(i,j)-1);
 
-     int i = Father.getRows()-1;
-     int j = Father.getColumns()-1;
-     interestPointsPosition.push_back(Father.getElement(i,j)-1);
-
-     while(j > 1){
-         interestPointsPosition.push_back(Father.getElement(i,j)-1);
-         i = Father.getElement(i,j);
-         j--;
-     }
+    while(j > 1){
+      interestPointsPosition.push_back(Father.getElement(i,j)-1);
+        i = Father.getElement(i,j);
+        j--;
+    }
 
 
     std::reverse(interestPointsPosition.begin(),interestPointsPosition.end());
