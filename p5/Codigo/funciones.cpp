@@ -35,14 +35,13 @@ void dynamicProgrammingMethod(){
     cout << "Digital curve to obtain polygonal approximation: ";
     cin >> fileNameDC;
 
-    cout << "Number of points of the polygonal approximation: ";
+    cout << "Introduce the number of points of the polygonal approximation: ";
     cin>>n;
 
     a = new DynamicProgrammingMethod(fileNameDC,n);
     a->apply();
-    //terminar esto
-    cout << "Number of points of the polygonal approxmation: " << a->getNumberPointsPolygonalApproximation() << endl;
-    cout << "The value of ISE is " << a->getISE() << endl;
+    cout << "Number of points of the polygonal approximation: " << a->getNumberPointsPolygonalApproximation() << endl;
+    cout << "The value of ISE is: " << a->getISE() << endl;
 
     DigitalCurve aP = a->getPolygonalApproximation();
 

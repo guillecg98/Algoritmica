@@ -46,30 +46,15 @@ void DynamicProgrammingMethod::apply(){
         }
     }
 
-    std::cerr<<"\nMatriz E:\n";
-    E.printMatrix();
-
-    std::cerr<<"\nMatriz Father:\n";
-    Father.printMatrix();
-
     int i = Father.getRows()-1;
     int j = Father.getColumns()-1;
-    interestPointsPosition.push_back(Father.getElement(i,j)-1);
-
     while(j > 1){
       interestPointsPosition.push_back(Father.getElement(i,j)-1);
         i = Father.getElement(i,j);
         j--;
     }
 
-
-    std::reverse(interestPointsPosition.begin(),interestPointsPosition.end());
-        //vector de dominantes
-    for(int i = 0; i < interestPointsPosition.size(); i++){
-        std::cerr<<interestPointsPosition[i]<<"\n";
-    }
-
-    std::cout<<"\nTamaño dominantes = "<<interestPointsPosition.size()<<"\n";
+    std::reverse(interestPointsPosition.begin(),interestPointsPosition.end());//ordenamos el vector definitivo
 
     setDominantPointsPosition(interestPointsPosition);//finalmente seteamos el vector resultado al algoritmo
     //se llama a la funcion encargada de calcular la aproximacion poligonal
