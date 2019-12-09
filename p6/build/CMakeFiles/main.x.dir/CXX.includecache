@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/gecoga98/Desktop/4º/Algoritmica/p6/algoritmos.cpp
+algoritmos.hpp
+/home/gecoga98/Desktop/4º/Algoritmica/p6/algoritmos.hpp
+
+/home/gecoga98/Desktop/4º/Algoritmica/p6/algoritmos.hpp
+reina.hpp
+/home/gecoga98/Desktop/4º/Algoritmica/p6/reina.hpp
+vector
+-
+cstdlib
+-
+
+/home/gecoga98/Desktop/4º/Algoritmica/p6/funciones.cpp
+funciones.hpp
+/home/gecoga98/Desktop/4º/Algoritmica/p6/funciones.hpp
+
+/home/gecoga98/Desktop/4º/Algoritmica/p6/funciones.hpp
+algoritmos.hpp
+/home/gecoga98/Desktop/4º/Algoritmica/p6/algoritmos.hpp
+reina.hpp
+/home/gecoga98/Desktop/4º/Algoritmica/p6/reina.hpp
+iostream
+-
+vector
+-
+
+/home/gecoga98/Desktop/4º/Algoritmica/p6/macros.hpp
+stdio.h
+-
+
+/home/gecoga98/Desktop/4º/Algoritmica/p6/main.cpp
+funciones.hpp
+/home/gecoga98/Desktop/4º/Algoritmica/p6/funciones.hpp
+macros.hpp
+/home/gecoga98/Desktop/4º/Algoritmica/p6/macros.hpp
+
+/home/gecoga98/Desktop/4º/Algoritmica/p6/reina.hpp
+
