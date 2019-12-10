@@ -17,6 +17,8 @@ vector
 -
 cstdlib
 -
+time.h
+-
 
 /home/gecoga98/Desktop/4º/Algoritmica/p6/funciones.cpp
 funciones.hpp

@@ -4,8 +4,10 @@
 #include "reina.hpp"
 #include <vector>
 #include<cstdlib>
+#include <time.h>
 
-void nReinasBacktracking(int n, std::vector<Reina> reina, std::vector<std::vector<Reina>> &posiciones);
 bool lugar(Reina k, std::vector<Reina> &reina);
+void nReinasBacktracking(int n, std::vector<Reina> reinas, std::vector<std::vector<Reina>> &posiciones);
+void nReinasLasVegas(int n, std::vector<Reina> reinas, std::vector<std::vector<Reina>> &posiciones, bool &exito);
 
 #endif

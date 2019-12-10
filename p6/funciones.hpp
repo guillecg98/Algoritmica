@@ -10,6 +10,7 @@
 using namespace std;
 
 void backtracking();
+void lasVegas();
 
 
 #endif

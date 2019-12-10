@@ -29,7 +29,7 @@ int main(){
 			   std::cout << BIBLUE;
 				std::cout << "[2] N Reinas - Las Vegas" << std::endl;
 				std::cout << RESET;
-				//lasVegas();
+				lasVegas();
 				std::cin.ignore();
 				break;
 			case 3:
