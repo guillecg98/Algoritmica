@@ -9,6 +9,6 @@
 
 bool lugar(Reina k, std::vector<Reina> &reina);
 void nReinasBacktracking(int n, std::vector<Reina> reinas, std::vector<std::vector<Reina>> &posiciones);
-bool nReinasLasVegas(int n, std::vector<Reina> reinas, std::vector<std::vector<Reina>> &posiciones, bool &exito);
+bool nReinasLasVegas(int n, std::vector<Reina> &reinas, bool &exito);
 
 #endif

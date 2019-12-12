@@ -1,8 +1,8 @@
 #include "algoritmos.hpp"
 
-bool lugar(Reina k, std::vector<Reina> &reina){
-  for(int i = 0; i < reina.size(); i++){
-      if( (reina[i].getColumna() == k.getColumna()) || std::abs(reina[i].getColumna() - k.getColumna()) == std::abs(reina[i].getFila() - k.getFila()) ){
+bool lugar(Reina k, std::vector<Reina> &reinas){
+  for(int i = 0; i < reinas.size(); i++){
+      if( (reinas[i].getColumna() == k.getColumna()) || std::abs(reinas[i].getColumna() - k.getColumna()) == std::abs(reinas[i].getFila() - k.getFila()) ){
           return false;
       }
   }
@@ -35,32 +35,30 @@ void nReinasBacktracking(int n, std::vector<Reina> reinas, std::vector<std::vect
   }
 }
 
-bool nReinasLasVegas(int n, std::vector<Reina> reinas, std::vector<std::vector<Reina>> &posiciones, bool &exito){
+bool nReinasLasVegas(int n, std::vector<Reina> &reinas, bool &exito){
   srand(time(NULL));
   int contador,random;
   Reina k(0,0);
-  while(k.getFila() >= 0){
-    if(k.getFila() == n && exito){
-      posiciones.push_back(reinas);
-      return true;
-    }else{
-      return false;
-    }
-    random = rand()%n;
-    k.setColumna(random);
-    while( (k.getColumna() < n) && (!lugar(k, reinas)) ){
-        k.setColumna(k.getColumna()+1);
-    }
-    if(k.getColumna() < n){
-      reinas.push_back(k);
-      k.setFila(k.getFila()+1);
-      k.setColumna(0);
-    }else{
-      exito = false;
-      if(k.getFila() >= 0){
-        k.setColumna(reinas[k.getFila()].getColumna() + 1);
-        reinas.erase(reinas.begin() + k.getFila());
+  std::vector<int> ok;
+
+  for(int i = 0; i < n; i++){
+    contador = 0;
+    for(int j = 0; j < n; j++){
+      k.setColumna(j);
+      if(lugar(k,reinas)){
+        contador++;
+        ok[contador] = k.getColumna();
       }
     }
+    if(contador == 0){
+      return false;
+    }
+    random = rand()%contador+1;
+    k.setColumna(random);
+    reinas.push_back(k);
   }
+  if(contador == 0){
+    return false;
+  }
+  return true;
 }
