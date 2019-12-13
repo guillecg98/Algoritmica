@@ -34,9 +34,9 @@ int main(){
 				break;
 			case 3:
 			   std::cout << BIBLUE;
-				std::cout << "[3] Backtracking time estimation" << std::endl;
+				std::cout << "[3] Tiempos Backtracking" << std::endl;
 				std::cout << RESET;
-				//backtrackingTime();
+				tiemposBacktracking();
 				std::cin.ignore();
 				break;
 			default:
@@ -86,7 +86,7 @@ int menu(){
 	PLACE(posicion++,10);
 	std::cout << "[2] N Reinas - Las Vegas" << std::endl;
 	PLACE(posicion++,10);
-	std::cout << "[3] Backtracking time estimation" << std::endl;
+	std::cout << "[3] Tiempos Backtracking" << std::endl;
 
 	PLACE(posicion++,10);
 	std::cout << BIRED;

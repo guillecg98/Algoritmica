@@ -6,6 +6,20 @@
 
 #IncludeRegexTransform: 
 
+/home/gecoga98/Desktop/4º/Algoritmica/p6/ClaseTiempo.cpp
+cassert
+-
+ctime
+-
+cstdio
+-
+cstring
+-
+iostream
+-
+stdint.h
+-
+
 /home/gecoga98/Desktop/4º/Algoritmica/p6/algoritmos.cpp
 algoritmos.hpp
 /home/gecoga98/Desktop/4º/Algoritmica/p6/algoritmos.hpp
@@ -31,6 +45,8 @@ algoritmos.hpp
 /home/gecoga98/Desktop/4º/Algoritmica/p6/algoritmos.hpp
 reina.hpp
 /home/gecoga98/Desktop/4º/Algoritmica/p6/reina.hpp
+ClaseTiempo.cpp
+/home/gecoga98/Desktop/4º/Algoritmica/p6/ClaseTiempo.cpp
 iostream
 -
 vector
