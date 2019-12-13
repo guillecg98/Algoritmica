@@ -35,26 +35,27 @@ void nReinasBacktracking(int n, std::vector<Reina> reinas, std::vector<std::vect
   }
 }
 
-bool nReinasLasVegas(int n, std::vector<Reina> &reinas, bool &exito){
-  srand(time(NULL));
+bool nReinasLasVegas(int n, std::vector<Reina> &reinas){
   int contador,random;
   Reina k(0,0);
   std::vector<int> ok;
+  ok.resize(n);
 
   for(int i = 0; i < n; i++){
     contador = 0;
+    k.setFila(i);
     for(int j = 0; j < n; j++){
       k.setColumna(j);
       if(lugar(k,reinas)){
-        contador++;
         ok[contador] = k.getColumna();
+        contador++;
       }
     }
     if(contador == 0){
       return false;
     }
-    random = rand()%contador+1;
-    k.setColumna(random);
+    random = rand()%contador;
+    k.setColumna(ok[random]);
     reinas.push_back(k);
   }
   if(contador == 0){
