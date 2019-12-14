@@ -72,11 +72,11 @@ void tiemposBacktracking(){
     ajusteFactorial(x,tiempos,a0,a1);
     calcularTiemposEstimadosFactorialN(x,tiempos,a0,a1,tiempos_estimados);
 
-    // if(escribeFichero(x,tiempos,tiempos_estimados,file_name)){
-    //     cout<<"\nSe ha creado el fichero "<<file_name<<" con la muestra, los tiempos reales y los tiempos estimados\n";
-    // }else{
-    //     cerr<<"Error al escribir en fichero\n";
-    // }
+    if(escribeFichero(x,tiempos,tiempos_estimados,file_name)){
+        cout<<"\nSe ha creado el fichero "<<file_name<<" con la muestra, los tiempos reales y los tiempos estimados\n";
+    }else{
+        cerr<<"Error al escribir en fichero\n";
+    }
 
     std::cout<<"\nEcuación del ajuste: t(n) = "<<a0<<" + "<<a1<<" * (!n)\n";
 
