@@ -40,10 +40,10 @@ void lasVegas(){
 
 void tiemposBacktracking(){
     Clock time;
-    double media;
+    double tiempo, media;
     int n,ejecuciones;
     std::vector<Reina> reinas;
-    std::vector<double> times;
+    std::vector<double> tiempos;
     std::vector<std::vector<Reina>> posiciones;
     std::cout<<"Introduce el numero de reinas:";
     std::cin>>n;
@@ -53,13 +53,14 @@ void tiemposBacktracking(){
         nReinasBacktracking(i,reinas,posiciones);
         if(time.isStarted()){
 	        time.stop();
+            tiempo = time.elapsed();
             media +=time.elapsed();
 	    }
-        times.push_back(media);
+        tiempos.push_back(tiempo);
     }
-    media /= n;
+    media /= (n-4);
     std::cout<<"El programa ha tardado "<<media<<" microsegundos de media\n";
-    for(int i = 0; i < times.size(); i++){
-        std::cout<<"media "<<i+1<<" = "<<times[i]<<"\n";
+    for(int i = 0; i < tiempos.size(); i++){
+        std::cout<<"tiempo "<<i+1<<" = "<<tiempos[i]<<"\n";
     }
 }
