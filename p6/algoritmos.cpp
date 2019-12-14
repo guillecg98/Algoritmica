@@ -76,15 +76,15 @@ double factorial(double x){
   }
 }
 
-void ajusteFactorial(const std::vector<double> &tiempos, double &a0, double &a1){
-  std::vector<std::vector<double>> A(2, std::vector<double>(2, 0));
-  std::vector<std::vector<double>> B(2, std::vector<double>(1, 0));
-  std::vector<std::vector<double>> X(2, std::vector<double>(1, 0));
+void ajusteFactorial(const std::vector<int> &x, const std::vector<double> &tiempos, double &a0, double &a1){
+    std::vector<vector<double>> A(2, vector<double>(2, 0));
+    std::vector<vector<double>> B(2, vector<double>(1, 0));
+    std::vector<vector<double>> X(2, vector<double>(1, 0));
   std::vector<double> z;
 
-  z.resize(tiempos.size());
+  z.resize(x.size());
   for(int i = 0; i < z.size(); i++){
-    z[i] = factorial(tiempos[i]);
+    z[i] = factorial(x[i]);
   }
   //planteamos el sistema para el caso t(n) = a0 + a1 * factorial(n)
   for(int i = 0; i < 2; i++){
@@ -101,6 +101,33 @@ void ajusteFactorial(const std::vector<double> &tiempos, double &a0, double &a1)
   resolverSistemaEcuaciones(A,B,2,X);
   a0 = X[0][0];
   a1 = X[1][0];
+}
+
+void calcularTiemposEstimadosFactorialN(const std::vector<int> &x,const std::vector<double> &tiempos, const double &a0, const double &a1, std::vector<double> &tiempos_estimados){
+    for(int i = 0; i < tiempos.size(); i++){
+        tiempos_estimados.push_back(a0 + a1 * factorial(x[i]));
+    }
+}
+
+double calcularCoeficienteDeterminacion(const std::vector<double> &tiempos, const std::vector<double> &tiempos_estimados){
+    return calcularVarianza(tiempos_estimados) / calcularVarianza(tiempos);
+}
+
+double calcularVarianza(std::vector<double> vec){
+    double media = 0;
+    double varianza = 0;
+
+    for(int i = 0; i < vec.size(); i++){
+        media += vec[i];
+    }
+    media = media / vec.size();
+
+    for(int i = 0; i < vec.size(); i++){
+        varianza += pow(vec[i]-media,2);
+    }
+    varianza = varianza / vec.size();
+
+    return varianza;
 }
 
 double sumatorio(std::vector<double> vec1, std::vector<double> vec2, double exp1, double exp2){

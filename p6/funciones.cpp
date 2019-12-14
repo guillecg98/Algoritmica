@@ -39,11 +39,13 @@ void lasVegas(){
 }
 
 void tiemposBacktracking(){
+    int n;
     Clock time;
-    double tiempo, media;
-    int n,ejecuciones;
+    double tiempo, media,a0,a1;
+    std::vector<int> x;
     std::vector<Reina> reinas;
     std::vector<double> tiempos;
+    std::vector<double> tiempos_estimados;
     std::vector<std::vector<Reina>> posiciones;
     std::cout<<"Introduce el numero de reinas:";
     std::cin>>n;
@@ -57,10 +59,12 @@ void tiemposBacktracking(){
             media +=time.elapsed();
 	    }
         tiempos.push_back(tiempo);
+        x.push_back(i);
     }
     media /= (n-4);
     std::cout<<"El programa ha tardado "<<media<<" microsegundos de media\n";
-    for(int i = 0; i < tiempos.size(); i++){
-        std::cout<<"tiempo "<<i+1<<" = "<<tiempos[i]<<"\n";
-    }
+    ajusteFactorial(x,tiempos,a0,a1);
+    calcularTiemposEstimadosFactorialN(x,tiempos,a0,a1,tiempos_estimados);
+    cout<<"\nEcuación del ajuste: t(n) = "<<a0<<" + "<<a1<<" * (!n)\n";
+    cout<<"Coeficiente de Determinacion (R2) = "<<calcularCoeficienteDeterminacion(tiempos,tiempos_estimados)<<"\n";
 }

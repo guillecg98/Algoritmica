@@ -27,6 +27,8 @@ algoritmos.hpp
 /home/gecoga98/Desktop/4º/Algoritmica/p6/algoritmos.hpp
 reina.hpp
 /home/gecoga98/Desktop/4º/Algoritmica/p6/reina.hpp
+sistemaEcuaciones.hpp
+/home/gecoga98/Desktop/4º/Algoritmica/p6/sistemaEcuaciones.hpp
 vector
 -
 cstdlib
@@ -34,6 +36,10 @@ cstdlib
 iostream
 -
 time.h
+-
+cmath
+-
+cassert
 -
 
 /home/gecoga98/Desktop/4º/Algoritmica/p6/funciones.cpp
@@ -63,4 +69,14 @@ macros.hpp
 /home/gecoga98/Desktop/4º/Algoritmica/p6/macros.hpp
 
 /home/gecoga98/Desktop/4º/Algoritmica/p6/reina.hpp
+
+/home/gecoga98/Desktop/4º/Algoritmica/p6/sistemaEcuaciones.hpp
+iostream
+-
+vector
+-
+cmath
+-
+cstdlib
+-
 

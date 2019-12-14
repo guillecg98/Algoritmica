@@ -4,12 +4,14 @@
 CMakeFiles/main.x.dir/algoritmos.cpp.o: ../algoritmos.cpp
 CMakeFiles/main.x.dir/algoritmos.cpp.o: ../algoritmos.hpp
 CMakeFiles/main.x.dir/algoritmos.cpp.o: ../reina.hpp
+CMakeFiles/main.x.dir/algoritmos.cpp.o: ../sistemaEcuaciones.hpp
 
 CMakeFiles/main.x.dir/funciones.cpp.o: ../ClaseTiempo.cpp
 CMakeFiles/main.x.dir/funciones.cpp.o: ../algoritmos.hpp
 CMakeFiles/main.x.dir/funciones.cpp.o: ../funciones.cpp
 CMakeFiles/main.x.dir/funciones.cpp.o: ../funciones.hpp
 CMakeFiles/main.x.dir/funciones.cpp.o: ../reina.hpp
+CMakeFiles/main.x.dir/funciones.cpp.o: ../sistemaEcuaciones.hpp
 
 CMakeFiles/main.x.dir/main.cpp.o: ../ClaseTiempo.cpp
 CMakeFiles/main.x.dir/main.cpp.o: ../algoritmos.hpp
@@ -17,4 +19,5 @@ CMakeFiles/main.x.dir/main.cpp.o: ../funciones.hpp
 CMakeFiles/main.x.dir/main.cpp.o: ../macros.hpp
 CMakeFiles/main.x.dir/main.cpp.o: ../main.cpp
 CMakeFiles/main.x.dir/main.cpp.o: ../reina.hpp
+CMakeFiles/main.x.dir/main.cpp.o: ../sistemaEcuaciones.hpp
 
