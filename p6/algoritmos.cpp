@@ -64,6 +64,25 @@ bool nReinasLasVegas(int n, std::vector<Reina> &reinas){
   return true;
 }
 
+bool escribeFichero(std::vector<int> &x, std::vector<double> &tiempos, std::vector<double> &tiempos_estimados, string file_name){
+    #ifndef NDEBUG
+        assert( !x.empty() );
+        assert( !tiempos.empty() );
+        assert( !tiempos_estimados.empty());
+    #endif
+
+    bool escrito = false;
+
+    ofstream file(file_name);
+    for(int i = 0; i < x.size(); i++){
+        file << x[i] << " " << tiempos[i] << " " << tiempos_estimados[i] << "\n";
+    }
+    file.close();
+
+    escrito = true;
+    return escrito;
+}
+
 double factorial(double x){
   if(x < 0){
     return 0;
@@ -139,4 +158,11 @@ double sumatorio(std::vector<double> vec1, std::vector<double> vec2, double exp1
         sum += pow(vec1[i],exp1) * pow(vec2[i],exp2);
     }
     return sum;
+}
+
+double calculaTiempoEstimado(const int n,double a0, double a1){
+    double dia = 0;
+    double micro = 86400000000; //1 dia son esos microsegundos
+    dia = (a0 + a1 * factorial(n)) / micro;
+    return dia;
 }

@@ -204,6 +204,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/main.x.dir/build.make CMakeFiles/main.x.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+sistemaEcuaciones.o: sistemaEcuaciones.cpp.o
+
+.PHONY : sistemaEcuaciones.o
+
+# target to build an object file
+sistemaEcuaciones.cpp.o:
+	$(MAKE) -f CMakeFiles/main.x.dir/build.make CMakeFiles/main.x.dir/sistemaEcuaciones.cpp.o
+.PHONY : sistemaEcuaciones.cpp.o
+
+sistemaEcuaciones.i: sistemaEcuaciones.cpp.i
+
+.PHONY : sistemaEcuaciones.i
+
+# target to preprocess a source file
+sistemaEcuaciones.cpp.i:
+	$(MAKE) -f CMakeFiles/main.x.dir/build.make CMakeFiles/main.x.dir/sistemaEcuaciones.cpp.i
+.PHONY : sistemaEcuaciones.cpp.i
+
+sistemaEcuaciones.s: sistemaEcuaciones.cpp.s
+
+.PHONY : sistemaEcuaciones.s
+
+# target to generate assembly for a file
+sistemaEcuaciones.cpp.s:
+	$(MAKE) -f CMakeFiles/main.x.dir/build.make CMakeFiles/main.x.dir/sistemaEcuaciones.cpp.s
+.PHONY : sistemaEcuaciones.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -222,6 +249,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... sistemaEcuaciones.o"
+	@echo "... sistemaEcuaciones.i"
+	@echo "... sistemaEcuaciones.s"
 .PHONY : help
 
 

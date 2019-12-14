@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.x.dir/main.cpp.o"
   "CMakeFiles/main.x.dir/funciones.cpp.o"
   "CMakeFiles/main.x.dir/algoritmos.cpp.o"
+  "CMakeFiles/main.x.dir/sistemaEcuaciones.cpp.o"
   "main.x.pdb"
   "main.x"
 )

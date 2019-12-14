@@ -1,1 +1,1 @@
-/usr/bin/c++    -rdynamic CMakeFiles/main.x.dir/main.cpp.o CMakeFiles/main.x.dir/funciones.cpp.o CMakeFiles/main.x.dir/algoritmos.cpp.o  -o main.x 
+/usr/bin/c++    -rdynamic CMakeFiles/main.x.dir/main.cpp.o CMakeFiles/main.x.dir/funciones.cpp.o CMakeFiles/main.x.dir/algoritmos.cpp.o CMakeFiles/main.x.dir/sistemaEcuaciones.cpp.o  -o main.x 

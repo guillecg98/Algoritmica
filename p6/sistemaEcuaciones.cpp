@@ -21,35 +21,35 @@ void resolverSistemaEcuaciones(vector < vector < double > > A, vector < vector <
 {
 	vector < vector < double > > inversa; //matriz inversa de la matriz de coeficientes que hay que calcular para resolver el sistema.
 	inversa = vector< vector< double > >(n, vector< double >(n)); //Matriz de N x N
-
+	
 	//Inicializamos la matriz inversa
 	inicializarInversa(inversa);
 
 	//Se triangulariza la matriz por debajo de la diagonal
 	trianguloInferior(A, inversa);
-
+	
 	//Mostramos determinante
 	double determinante = productoDiagonal(A);
-
+	
 	if (fabs(determinante) < 0.0000000001) //Si el determinante es 0 no hay solución
 	{
 		exit(0);
 	}
-
+	
 	//Se triangulariza la matriz por encima de la diagonal
 	trianguloSuperior(A,inversa);
-
+	
 	obtenerUnidad(A, inversa);
-
+	
 	//Se muestra la inversa
 	multiplicarMatrices(inversa, B, X);
 }
 
 //Funcion para inicializar la matriz inversa que se inicializa con la matriz unidad
-
+	
 void inicializarInversa(vector < vector < double > >  &inversa)
 {
-
+ 
  for(unsigned int i = 0; i < inversa.size(); i++)
   for(unsigned int j = 0; j < inversa.size(); j++)
    {
@@ -136,7 +136,7 @@ double productoDiagonal(const vector < vector < double > > &matriz)
 	for(unsigned int i = 0; i < matriz.size(); i++)
 		d = d * matriz[i][i];
 
-	return d;
+	return d;  
 }
 
 //Funcion para triangularizar la matriz por encima de la diagonal principal

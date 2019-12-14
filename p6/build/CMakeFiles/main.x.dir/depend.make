@@ -21,3 +21,6 @@ CMakeFiles/main.x.dir/main.cpp.o: ../main.cpp
 CMakeFiles/main.x.dir/main.cpp.o: ../reina.hpp
 CMakeFiles/main.x.dir/main.cpp.o: ../sistemaEcuaciones.hpp
 
+CMakeFiles/main.x.dir/sistemaEcuaciones.cpp.o: ../sistemaEcuaciones.cpp
+CMakeFiles/main.x.dir/sistemaEcuaciones.cpp.o: ../sistemaEcuaciones.hpp
+

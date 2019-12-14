@@ -41,6 +41,8 @@ cmath
 -
 cassert
 -
+fstream
+-
 
 /home/gecoga98/Desktop/4º/Algoritmica/p6/funciones.cpp
 funciones.hpp
@@ -69,6 +71,10 @@ macros.hpp
 /home/gecoga98/Desktop/4º/Algoritmica/p6/macros.hpp
 
 /home/gecoga98/Desktop/4º/Algoritmica/p6/reina.hpp
+
+/home/gecoga98/Desktop/4º/Algoritmica/p6/sistemaEcuaciones.cpp
+sistemaEcuaciones.hpp
+/home/gecoga98/Desktop/4º/Algoritmica/p6/sistemaEcuaciones.hpp
 
 /home/gecoga98/Desktop/4º/Algoritmica/p6/sistemaEcuaciones.hpp
 iostream
