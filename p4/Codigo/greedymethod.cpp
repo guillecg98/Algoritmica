@@ -33,78 +33,40 @@ GreedyMethod::~GreedyMethod()
 
 void GreedyMethod::apply()
 {
-  //Completar
-  calculateSummations();
-  // collinearPointsElimination();
-
-  // int posicionOptima;
-  // std::vector<double> sumaErroresTotales;
-  // std::vector<int> interestDominantPointsPosition;//vector en el que en primer lugar guardamos las posiciones de los puntos que nos interesan
-
-  // int increments = getDominantPointsPosition().size() / (getNumberPointsPolygonalApproximation() - 1);
-  // int value = 0;
-
-  // for(int i = 0; i < getNumberPointsPolygonalApproximation(); i++){
-
-  //   interestDominantPointsPosition.push_back(getDominantPointsPosition()[value]);
-  //   value += increments;
-  // }
-
-  // setDominantPointsPosition(interestDominantPointsPosition);
-
-  // //Algoritmo voraz que busca la posicion más optima de cada punto
-  // for(int i = 1; i < getDominantPointsPosition().size(); i++){
-  //   double suma = 0;
-  //   double menor = calculateISEValue(getDominantPointsPosition()[i-1],getDominantPointsPosition()[i]) +
-  //                  calculateISEValue(getDominantPointsPosition()[i],getDominantPointsPosition()[i+1]);
-  //   int pos = getDominantPointsPosition()[i];
-  //     //hacer todos los puntos desde el [i]
-  //     for(int j = getDominantPointsPosition()[i-1]; j < getDominantPointsPosition()[i+1]; j++){
-  //       suma = calculateISEValue(getDominantPointsPosition()[i-1],j) + calculateISEValue(j,getDominantPointsPosition()[i+1]);
-  //       if(suma < menor){
-  //         menor = suma;
-  //         pos = j;
-  //       }
-  //     }
-  //     interestDominantPointsPosition[i] = pos;//actualizamos el vector de puntos interesados con la posicion más optima
-  // }
-
-  // setDominantPointsPosition(interestDominantPointsPosition);//finalmente seteamos el vector resultado al algoritmo
-  // //se llama a la funcion encargada de calcular la aproximacion poligonal
-  // calculatePolygonalApproximation();
-     collinearPointsElimination();
-    if (getOriginalCurve().isClosed())
-        setNumberPointsPolygonalApproximation(getNumberPointsPolygonalApproximation() - 1);
-
-    int jump = (getDominantPointsPosition().size() / (getNumberPointsPolygonalApproximation() - 1));
-    vector<int> newDominants;
-    for (auto i = 0; i < getDominantPointsPosition().size(); i += jump)
-        newDominants.push_back(getDominantPointsPosition()[i]);
-
-    if (newDominants.back() != getDominantPointsPosition().back())
-        newDominants.push_back(getDominantPointsPosition().back());
-
-    int first, last, inserted = 0;
-    float err, minErr;
-    for (int i = 1; i < getNumberPointsPolygonalApproximation(); ++i) {
-        minErr = std::numeric_limits<float>::infinity();
-        for (int j = newDominants[i - 1] + 1; j <= newDominants[i + 1]; ++j) {
-            err = calculateISEValue(newDominants[i - 1], j) + calculateISEValue(j, newDominants[i + 1]);
-            if (err < minErr) {
-                minErr = err;
-                inserted = j;
+    calculateSummations();
+    collinearPointsElimination();
+    //si la curva es cerrada, quitamos un punto de la aproximacion poligonal
+    if(getOriginalCurve().isClosed()){
+        setNumberPointsPolygonalApproximation(getNumberPointsPolygonalApproximation() -1);
+    }
+    //calculamos el tamaño del paso. tamaño del vector de dominantes entre (numero de puntos de la aproximacion - 1)
+    int paso = (getDominantPointsPosition().size() / (getNumberPointsPolygonalApproximation() -1));
+    //Rellenamos el nuevo vector de dominantes cumpliendo con los pasos
+    std::vector<int> nuevosDominantes;
+    for(int i = 0; i < getDominantPointsPosition().size(); i+=paso){
+        nuevosDominantes.push_back(getDominantPointsPosition()[i]);
+    }
+    //si el ultimo de dominantes y el ultimo de nuevos dominantes no son el mismo, forzamos a que lo sea
+    if(nuevosDominantes.back() != getDominantPointsPosition().back()){
+        nuevosDominantes.push_back(getDominantPointsPosition().back());
+    }
+    //Algoritmo:
+    int nuevoPunto = 0;
+    float minError,error;
+    for(int i = 1; i < getNumberPointsPolygonalApproximation(); i++){
+        minError = 9999;
+        for(int j = nuevosDominantes[i-1] + 1; j <= nuevosDominantes[i+1]; j++){
+            error = calculateISEValue(nuevosDominantes[i-1],j) + calculateISEValue(j,nuevosDominantes[i+1]);
+            if(error < minError){
+                minError = error;
+                nuevoPunto = j;
             }
         }
-        newDominants[i] = inserted;
-    }
-    //    if (getOriginalCurve().isClosed() && (newDominants.front() != newDominants.back()))
-    //        newDominants.push_back(newDominants.front());
-
-    getDominantPointsPosition() = newDominants;
-    for (auto i : newDominants) {
-        getPolygonalApproximation().insertPointDigitalCurve(getOriginalCurve().getPointDigitalCurve(i));
+        nuevosDominantes[i] = nuevoPunto;
     }
 
+    //insertamos el nuevo vector de dominantes en  el vector de dominantPoints
+    setDominantPointsPosition(nuevosDominantes);
     calculatePolygonalApproximation();
 }
 
